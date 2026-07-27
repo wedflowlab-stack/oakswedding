@@ -16,17 +16,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Label Knot — Premium Indian Wedding Photography & Films" },
+      { title: "Oaks wedding premium weddding" },
       {
         name: "description",
         content:
           "Label Knot is an editorial wedding photography and film house for India's most considered weddings. Heirloom albums, cinematic films, archival stills.",
       },
-      { property: "og:title", content: "Label Knot — Premium Indian Wedding Photography & Films" },
+      { property: "og:title", content: "Oaks wedding premium weddding" },
       {
         property: "og:description",
         content:
-          "An editorial wedding photography and film house. Heirloom albums, cinematic films, archival stills.",
+          "Label Knot is an editorial wedding photography and film house for India's most considered weddings. Heirloom albums, cinematic films, archival stills.",
       },
       { property: "og:type", content: "website" },
       {
