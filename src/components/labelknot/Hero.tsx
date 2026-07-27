@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HERO_IMAGE } from "@/lib/labelknot-images";
 
-const HERO_LOGO = "https://res.cloudinary.com/dtembvivw/image/upload/v1784292567/fourfold-logo_med8k8.png";
+const HERO_LOGO = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785162989/oaks_n1szuc.png";
 
 const SLIDES = [
   HERO_IMAGE,
