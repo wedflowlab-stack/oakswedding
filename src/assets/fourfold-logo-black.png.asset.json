@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "cc71d650-7467-4776-b348-65c7a22ee264",
-  "project_id": "a710edf8-78d1-41e0-864e-c34f0b78d57f",
-  "url": "/__l5e/assets-v1/cc71d650-7467-4776-b348-65c7a22ee264/fourfold-logo-black.png",
-  "r2_key": "a/v1/a710edf8-78d1-41e0-864e-c34f0b78d57f/cc71d650-7467-4776-b348-65c7a22ee264/fourfold-logo-black.png",
-  "original_filename": "fourfold-logo-black.png",
-  "size": 371194,
   "content_type": "image/png",
-  "created_at": "2026-06-01T08:20:54Z"
+  "created_at": "2026-06-01T08:20:54Z",
+  "original_filename": "fourfold-logo-black.png",
+  "project_id": "e90ad807-8863-4274-8e56-883246f05f8f",
+  "r2_key": "a/v1/e90ad807-8863-4274-8e56-883246f05f8f/cc71d650-7467-4776-b348-65c7a22ee264/fourfold-logo-black.png",
+  "size": 371194,
+  "url": "/__l5e/assets-v1/cc71d650-7467-4776-b348-65c7a22ee264/fourfold-logo-black.png",
+  "version": 1
 }
