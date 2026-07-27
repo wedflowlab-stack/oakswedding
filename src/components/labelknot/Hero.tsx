@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HERO_IMAGE } from "@/lib/labelknot-images";
 
-const HERO_LOGO = "https://res.cloudinary.com/dtembvivw/image/upload/v1784292567/fourfold-logo_med8k8.png";
+const HERO_LOGO = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785162989/oaks_n1szuc.png";
 
 const SLIDES = [
   HERO_IMAGE,
@@ -70,11 +70,11 @@ export function Hero() {
 
         {/* Masthead */}
         <div className="px-6 md:px-12 mt-[10vh] md:mt-10 fade-up text-center flex flex-col items-center">
-          <h1 className="sr-only">Fourfold Pictures</h1>
+          <h1 className="sr-only">Oaks Wedding</h1>
           <img
             src={HERO_LOGO}
-            alt="Fourfold Pictures"
-            className="w-[85vw] max-w-[640px] md:w-[60vw] lg:w-[52vw] select-none pointer-events-none"
+            alt="Oaks Wedding"
+            className="w-[55vw] max-w-[320px] md:w-[32vw] md:max-w-[380px] lg:w-[26vw] lg:max-w-[420px] select-none pointer-events-none"
             draggable={false}
           />
           <p className="mt-5 md:mt-6 font-display italic text-base md:text-xl tracking-wide opacity-90">
