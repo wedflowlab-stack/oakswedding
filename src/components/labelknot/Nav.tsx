@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 
-const LOGO_LIGHT = "https://res.cloudinary.com/dtembvivw/image/upload/v1784292567/fourfold-logo_med8k8.png";
-const LOGO_DARK = "https://res.cloudinary.com/dtembvivw/image/upload/v1784292556/fourfold-logo-black_reywle.png";
+const LOGO_LIGHT = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785162989/oaks_n1szuc.png";
+const LOGO_DARK = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785162989/oaks_n1szuc.png";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
