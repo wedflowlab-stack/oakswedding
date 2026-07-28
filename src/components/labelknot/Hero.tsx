@@ -392,7 +392,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="oaks-side-label" style={{ top: "1.9rem", left: "2.2rem" }}>
+          <div className="oaks-side-label meta-left" style={{ top: "1.9rem", left: "2.2rem" }}>
             <div className="oaks-meta-left">
               <span>JAN</span>
               <span>FEB</span>
@@ -402,7 +402,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="oaks-side-label" style={{ top: "1.9rem", right: "2.2rem" }}>
+          <div className="oaks-side-label meta-right" style={{ top: "1.9rem", right: "2.2rem" }}>
             <div className="oaks-meta-right">
               <span>VOLUME XII</span>
               <span>N° 02</span>
