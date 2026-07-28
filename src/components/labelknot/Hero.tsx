@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import oaksMasthead from "@/assets/oaks-masthead.webp.asset.json";
+import lovelyFont from "@/assets/Lovely.ttf.asset.json";
 
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
 const LOGO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
 const MASTHEAD_LOGO = oaksMasthead.url;
+const LOVELY_FONT = lovelyFont.url;
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
