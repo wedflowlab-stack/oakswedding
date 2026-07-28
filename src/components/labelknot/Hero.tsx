@@ -20,6 +20,14 @@ export function Hero() {
   return (
     <>
       <style>{`
+        @font-face {
+          font-family: 'Lovely';
+          src: url('${LOVELY_FONT}') format('truetype');
+          font-weight: 100 900;
+          font-style: normal;
+          font-display: swap;
+        }
+
         .oaks-hero {
           position: relative;
           width: 100%;
