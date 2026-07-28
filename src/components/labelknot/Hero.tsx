@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import oaksMasthead from "@/assets/oaks-masthead.webp.asset.json";
 
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
 const LOGO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
-const MASTHEAD_LOGO = oaksMasthead.url;
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -130,23 +128,23 @@ export function Hero() {
         .oaks-masthead-wrap {
           position: absolute;
           top: 0;
-          left: -2%;
-          right: -2%;
+          left: 0;
+          right: 0;
           display: flex;
           justify-content: center;
-          align-items: flex-start;
           pointer-events: none;
           z-index: 1;
         }
-        .oaks-masthead-img {
-          width: 104%;
-          max-width: none;
-          height: auto;
-          display: block;
-          object-fit: contain;
-          opacity: 0.93;
+        .oaks-masthead {
+          font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+          font-weight: 300;
+          letter-spacing: -0.01em;
+          color: rgba(253,248,220,0.93);
+          line-height: 0.82;
+          text-align: center;
+          width: 100%;
           user-select: none;
-          pointer-events: none;
+          margin: 0;
         }
 
         .oaks-side-label {
@@ -190,12 +188,32 @@ export function Hero() {
           align-items: center;
           gap: 0;
           margin-bottom: 0.6rem;
-          width: 100%;
         }
-        .oaks-title-svg {
-          width: 100%;
-          overflow: visible;
-          display: block;
+        .oaks-tender {
+          font-family: 'Cormorant Garamond', serif;
+          font-weight: 300;
+          letter-spacing: 0.03em;
+          color: rgba(253,248,220,0.97);
+          line-height: 0.88;
+        }
+        .oaks-with-vows {
+          display: flex;
+          align-items: baseline;
+          gap: 0;
+          line-height: 0.88;
+        }
+        .oaks-with {
+          font-family: 'Cormorant Garamond', serif;
+          font-style: italic;
+          font-weight: 300;
+          color: rgba(253,248,220,0.9);
+          margin-right: 0.18em;
+        }
+        .oaks-vows {
+          font-family: 'Cormorant Garamond', serif;
+          font-weight: 300;
+          letter-spacing: 0.03em;
+          color: rgba(253,248,220,0.97);
         }
 
         .oaks-rare {
@@ -240,7 +258,11 @@ export function Hero() {
         .oaks-footer-centre { display: none; }
 
         /* MOBILE (<640px) */
-        .oaks-masthead-wrap { padding-top: clamp(16px, 4vw, 36px); }
+        .oaks-masthead { font-size: clamp(88px, 26vw, 140px); }
+        .oaks-masthead-wrap { padding-top: clamp(48px, 12vw, 80px); }
+        .oaks-tender { font-size: clamp(58px, 16.5vw, 88px); }
+        .oaks-with { font-size: clamp(36px, 9.5vw, 52px); }
+        .oaks-vows { font-size: clamp(68px, 19.5vw, 100px); }
         .oaks-rare { font-size: clamp(10px, 2.6vw, 14px); }
         .oaks-signature { font-size: clamp(15px, 4vw, 20px); }
         .oaks-footer-label { font-size: clamp(7px, 1.9vw, 11px); }
@@ -252,7 +274,11 @@ export function Hero() {
           .oaks-nav-logo img { height: 22px; }
           .oaks-india { font-size: 10px; top: 2.4rem; }
           .oaks-meta-left span, .oaks-meta-right span { font-size: 10px; }
-          .oaks-masthead-wrap { padding-top: clamp(16px, 3vw, 36px); }
+          .oaks-masthead { font-size: clamp(130px, 18vw, 200px); }
+          .oaks-masthead-wrap { padding-top: clamp(50px, 8vw, 90px); }
+          .oaks-tender { font-size: clamp(72px, 12vw, 120px); }
+          .oaks-with { font-size: clamp(46px, 7.5vw, 76px); }
+          .oaks-vows { font-size: clamp(88px, 14.5vw, 145px); }
           .oaks-rare { font-size: clamp(11px, 1.6vw, 16px); }
           .oaks-signature { font-size: clamp(18px, 2.6vw, 26px); }
           .oaks-footer-label { font-size: clamp(8px, 1.2vw, 12px); }
@@ -287,7 +313,8 @@ export function Hero() {
           .oaks-india { font-size: 11px; letter-spacing: 0.4em; top: 3rem; }
           .oaks-meta-left span, .oaks-meta-right span { font-size: 10px; }
 
-          .oaks-masthead-wrap { padding-top: clamp(12px, 1.8vw, 32px); }
+          .oaks-masthead { font-size: clamp(160px, 16vw, 260px); letter-spacing: -0.02em; }
+          .oaks-masthead-wrap { padding-top: clamp(52px, 5.5vw, 100px); }
 
           .oaks-bottom {
             padding: 0 4rem 4rem;
@@ -297,8 +324,12 @@ export function Hero() {
             padding-left: 52%;
           }
           .oaks-title-block { align-items: flex-end; }
+          .oaks-with-vows { justify-content: flex-end; }
           .oaks-hr { margin: 0.9rem 0 0.9rem auto; }
 
+          .oaks-tender { font-size: clamp(80px, 9vw, 145px); }
+          .oaks-with { font-size: clamp(52px, 5.6vw, 88px); }
+          .oaks-vows { font-size: clamp(95px, 11vw, 172px); }
           .oaks-rare { font-size: clamp(11px, 1.05vw, 17px); letter-spacing: 0.32em; }
           .oaks-signature { font-size: clamp(18px, 1.8vw, 28px); }
           .oaks-footer-label { font-size: clamp(9px, 0.75vw, 12px); }
@@ -332,7 +363,7 @@ export function Hero() {
         <div className="oaks-bg" role="img" aria-hidden="true" />
 
         <div className="oaks-masthead-wrap" aria-hidden="true">
-          <img className="oaks-masthead-img" src={MASTHEAD_LOGO} alt="" role="presentation" />
+          <h1 className="oaks-masthead">OAKS</h1>
         </div>
 
         <div className="oaks-content">
@@ -389,50 +420,12 @@ export function Hero() {
           <div style={{ flex: 1 }} />
 
           <div className="oaks-bottom">
-            <div className="oaks-title-block" aria-label="Tender with Vows">
-              <svg
-                className="oaks-title-svg"
-                viewBox="0 0 900 220"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <text
-                  x="450"
-                  y="108"
-                  textAnchor="middle"
-                  fontFamily="'Bodoni Moda', 'Didot', Georgia, serif"
-                  fontWeight="900"
-                  fontSize="130"
-                  letterSpacing="4"
-                  fill="rgba(253,248,220,0.96)"
-                  stroke="none"
-                >TENDER</text>
-                <text
-                  x="232"
-                  y="205"
-                  textAnchor="middle"
-                  fontFamily="'Bodoni Moda', 'Didot', Georgia, serif"
-                  fontWeight="400"
-                  fontStyle="italic"
-                  fontSize="62"
-                  fill="none"
-                  stroke="rgba(253,248,220,0.82)"
-                  strokeWidth="0.8"
-                  letterSpacing="1"
-                >with</text>
-                <text
-                  x="600"
-                  y="210"
-                  textAnchor="middle"
-                  fontFamily="'Bodoni Moda', 'Didot', Georgia, serif"
-                  fontWeight="900"
-                  fontSize="130"
-                  fill="none"
-                  stroke="rgba(253,248,220,0.93)"
-                  strokeWidth="1"
-                  letterSpacing="4"
-                >VOWS</text>
-              </svg>
+            <div className="oaks-title-block">
+              <div className="oaks-tender" aria-label="Tender with Vows">TENDER</div>
+              <div className="oaks-with-vows">
+                <span className="oaks-with">with</span>
+                <span className="oaks-vows">VOWS</span>
+              </div>
             </div>
 
             <div className="oaks-rare">RARE FRAMES</div>
