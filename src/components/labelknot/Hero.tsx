@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import oaksMasthead from "@/assets/oaks-masthead.webp.asset.json";
+import lovelyFont from "@/assets/Lovely.ttf.asset.json";
 
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
 const LOGO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
 const MASTHEAD_LOGO = oaksMasthead.url;
+const LOVELY_FONT = lovelyFont.url;
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -18,6 +20,14 @@ export function Hero() {
   return (
     <>
       <style>{`
+        @font-face {
+          font-family: 'Lovely';
+          src: url('${LOVELY_FONT}') format('truetype');
+          font-weight: 100 900;
+          font-style: normal;
+          font-display: swap;
+        }
+
         .oaks-hero {
           position: relative;
           width: 100%;
@@ -400,10 +410,10 @@ export function Hero() {
                   x="450"
                   y="108"
                   textAnchor="middle"
-                  fontFamily="'Bodoni Moda', 'Didot', Georgia, serif"
-                  fontWeight="900"
-                  fontSize="130"
-                  letterSpacing="4"
+                  fontFamily="'Lovely', 'Pinyon Script', cursive"
+                  fontWeight="400"
+                  fontSize="132"
+                  letterSpacing="0"
                   fill="rgba(253,248,220,0.96)"
                   stroke="none"
                 >TENDER</text>
@@ -411,26 +421,26 @@ export function Hero() {
                   x="232"
                   y="205"
                   textAnchor="middle"
-                  fontFamily="'Bodoni Moda', 'Didot', Georgia, serif"
+                  fontFamily="'Lovely', 'Pinyon Script', cursive"
                   fontWeight="400"
                   fontStyle="italic"
-                  fontSize="62"
+                  fontSize="64"
                   fill="none"
                   stroke="rgba(253,248,220,0.82)"
-                  strokeWidth="0.8"
-                  letterSpacing="1"
+                  strokeWidth="0.6"
+                  letterSpacing="0"
                 >with</text>
                 <text
                   x="600"
                   y="210"
                   textAnchor="middle"
-                  fontFamily="'Bodoni Moda', 'Didot', Georgia, serif"
-                  fontWeight="900"
-                  fontSize="130"
+                  fontFamily="'Lovely', 'Pinyon Script', cursive"
+                  fontWeight="400"
+                  fontSize="132"
                   fill="none"
                   stroke="rgba(253,248,220,0.93)"
-                  strokeWidth="1"
-                  letterSpacing="4"
+                  strokeWidth="0.8"
+                  letterSpacing="0"
                 >VOWS</text>
               </svg>
             </div>
