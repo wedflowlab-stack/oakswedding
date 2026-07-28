@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
+const MOBILE_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785213272/NEW_HERO_zv1nde.png";
 const LOGO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
 
 export function Hero() {
@@ -256,6 +257,15 @@ export function Hero() {
         }
 
         .oaks-footer-centre { display: none; }
+
+        /* MOBILE ONLY OVERRIDES */
+        @media (max-width: 639px) {
+          .oaks-bg { background-image: url('${MOBILE_IMAGE}'); }
+          .oaks-masthead-wrap { display: none; }
+          .oaks-india { display: none; }
+          .oaks-top { display: flex; justify-content: space-between; }
+          .oaks-title-block { display: none; }
+        }
 
         /* MOBILE (<640px) */
         .oaks-masthead { font-size: clamp(88px, 26vw, 140px); }
