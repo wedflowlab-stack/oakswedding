@@ -270,6 +270,7 @@ export function Hero() {
           .oaks-india { display: none; }
           .oaks-top { display: flex; justify-content: space-between; }
           .oaks-title-block { display: none; }
+          .meta-left, .meta-right { top: 37% !important; }
         }
 
         /* MOBILE (<640px) */
