@@ -260,7 +260,11 @@ export function Hero() {
 
         /* MOBILE ONLY OVERRIDES */
         @media (max-width: 639px) {
-          .oaks-bg { background-image: url('${MOBILE_IMAGE}'); }
+          .oaks-bg {
+            background-image: url('${MOBILE_IMAGE}');
+            background-size: 100% auto;
+            background-position: center top;
+          }
           .oaks-masthead-wrap { display: none; }
           .oaks-india { display: none; }
           .oaks-top { display: flex; justify-content: space-between; }
