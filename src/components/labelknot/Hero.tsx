@@ -263,7 +263,7 @@ export function Hero() {
           .oaks-bg {
             background-image: url('${MOBILE_IMAGE}');
             background-size: 100% auto;
-            background-position: center 25svh;
+            background-position: center 20svh;
           }
           .oaks-masthead-wrap { display: none; }
           .oaks-india { display: none; }
