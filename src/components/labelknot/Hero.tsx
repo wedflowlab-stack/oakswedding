@@ -290,7 +290,7 @@ export function Hero() {
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
           .label-archive, .label-collector { bottom: 43%; }
-          .label-curated, .label-oaks-studio { bottom: 6.5rem; }
+          .label-curated, .label-oaks-studio { bottom: 5.9rem; }
           .oaks-footer-mobile .oaks-cities { margin-top: 2rem; }
         }
 
