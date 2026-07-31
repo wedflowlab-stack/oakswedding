@@ -190,7 +190,7 @@ export function Hero() {
         }
 
         .oaks-bottom {
-          padding: 0 2.2rem 2.8rem;
+          padding: 0 2.2rem 2.2rem;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -290,7 +290,7 @@ export function Hero() {
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
           .label-archive, .label-collector { bottom: 43%; }
-          .label-curated, .label-oaks-studio { bottom: 6.8rem; }
+          .label-curated, .label-oaks-studio { bottom: 6.2rem; }
           .oaks-footer-mobile .oaks-cities { margin-top: 2rem; }
         }
 
@@ -303,8 +303,8 @@ export function Hero() {
         .oaks-vows { font-size: clamp(68px, 19.5vw, 100px); }
         .oaks-rare { font-size: clamp(10px, 2.6vw, 14px); }
         .oaks-signature { font-size: clamp(15px, 4vw, 20px); }
-        .oaks-footer-label { font-size: clamp(7.35px, 1.995vw, 11.55px); }
-        .oaks-cities { font-size: clamp(10px, 2.8vw, 15px); }
+        .oaks-footer-label { font-size: clamp(8.85px, 2.395vw, 13.05px); }
+        .oaks-cities { font-size: clamp(8px, 2.267vw, 13px); }
 
         /* TABLET (>=640px) */
         @media (min-width: 640px) {
