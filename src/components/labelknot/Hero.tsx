@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
-const MOBILE_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
-const LOGO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
+const MOBILE_IMAGE =
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
+const LOGO_IMAGE =
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -174,6 +176,19 @@ export function Hero() {
         .label-curated { left: 2.2rem; bottom: 7%; }
         .label-oaks-studio { right: 2.2rem; bottom: 7%; text-align: right; }
 
+        .globe-rotating {
+          display: inline-flex;
+          color: rgba(253,248,220,0.6);
+          animation: globeSpin 8s linear infinite;
+        }
+        .globe-rotating svg {
+          transform-style: preserve-3d;
+        }
+        @keyframes globeSpin {
+          from { transform: rotateY(0deg); }
+          to { transform: rotateY(360deg); }
+        }
+
         .oaks-bottom {
           padding: 0 2.2rem 2.8rem;
           display: flex;
@@ -275,7 +290,7 @@ export function Hero() {
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
           .label-archive, .label-collector { bottom: 43%; }
-          .label-curated, .label-oaks-studio { bottom: 12%; }
+          .label-curated, .label-oaks-studio { bottom: 7%; }
         }
 
 
@@ -287,7 +302,7 @@ export function Hero() {
         .oaks-vows { font-size: clamp(68px, 19.5vw, 100px); }
         .oaks-rare { font-size: clamp(10px, 2.6vw, 14px); }
         .oaks-signature { font-size: clamp(15px, 4vw, 20px); }
-        .oaks-footer-label { font-size: clamp(7px, 1.9vw, 11px); }
+        .oaks-footer-label { font-size: clamp(7.35px, 1.995vw, 11.55px); }
         .oaks-cities { font-size: clamp(10px, 2.8vw, 15px); }
 
         /* TABLET (>=640px) */
@@ -393,9 +408,12 @@ export function Hero() {
             <div className="oaks-nav-logo">
               <img src={LOGO_IMAGE} alt="Oaks Wedding" />
             </div>
-            <div className="oaks-india" aria-hidden="true">INDIA</div>
+            <div className="oaks-india" aria-hidden="true">
+              INDIA
+            </div>
             <div className="oaks-menu" role="button" aria-label="Open menu" tabIndex={0}>
-              <span /><span />
+              <span />
+              <span />
             </div>
           </div>
 
@@ -430,20 +448,35 @@ export function Hero() {
           </div>
 
           <div className="oaks-side-label label-curated" aria-hidden="true">
-            <span>CURATED</span>
-            <span>MEMORIES</span>
+            <span>WORLDWIDE</span>
           </div>
 
           <div className="oaks-side-label label-oaks-studio" aria-hidden="true">
-            <span>OAKS</span>
-            <span>STUDIO</span>
+            <span className="globe-rotating" aria-label="Globe">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.2"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2v20" />
+                <path d="M2 12h20" />
+                <ellipse cx="12" cy="12" rx="4" ry="10" />
+              </svg>
+            </span>
           </div>
 
           <div style={{ flex: 1 }} />
 
           <div className="oaks-bottom">
             <div className="oaks-title-block">
-              <div className="oaks-tender" aria-label="Tender with Vows">TENDER</div>
+              <div className="oaks-tender" aria-label="Tender with Vows">
+                TENDER
+              </div>
               <div className="oaks-with-vows">
                 <span className="oaks-with">with</span>
                 <span className="oaks-vows">VOWS</span>
@@ -456,13 +489,17 @@ export function Hero() {
 
             <div className="oaks-footer-mobile">
               <div className="oaks-footer-label">PREMIUM WEDDING HOUSE</div>
-              <div className="oaks-cities">Mumbai • Jaipur • Bangalore • Dubai • UK</div>
+              <div className="oaks-cities">
+                MUMBAI • KERALA • JAIPUR • BANGALORE • DUBAI • UK • AUSTRIA
+              </div>
             </div>
           </div>
 
           <div className="oaks-footer-centre" aria-hidden="true">
             <div className="oaks-footer-label">PREMIUM WEDDING HOUSE</div>
-            <div className="oaks-cities">Mumbai • Jaipur • Bangalore • Dubai • UK</div>
+            <div className="oaks-cities">
+              MUMBAI • KERALA • JAIPUR • BANGALORE • DUBAI • UK • AUSTRIA
+            </div>
           </div>
         </div>
       </section>
