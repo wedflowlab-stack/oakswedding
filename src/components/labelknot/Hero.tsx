@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
-const MOBILE_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
-const LOGO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
+const MOBILE_IMAGE =
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
+const LOGO_IMAGE =
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -406,9 +408,12 @@ export function Hero() {
             <div className="oaks-nav-logo">
               <img src={LOGO_IMAGE} alt="Oaks Wedding" />
             </div>
-            <div className="oaks-india" aria-hidden="true">INDIA</div>
+            <div className="oaks-india" aria-hidden="true">
+              INDIA
+            </div>
             <div className="oaks-menu" role="button" aria-label="Open menu" tabIndex={0}>
-              <span /><span />
+              <span />
+              <span />
             </div>
           </div>
 
@@ -448,11 +453,19 @@ export function Hero() {
 
           <div className="oaks-side-label label-oaks-studio" aria-hidden="true">
             <span className="globe-rotating" aria-label="Globe">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 2v20"/>
-                <path d="M2 12h20"/>
-                <ellipse cx="12" cy="12" rx="4" ry="10"/>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.2"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2v20" />
+                <path d="M2 12h20" />
+                <ellipse cx="12" cy="12" rx="4" ry="10" />
               </svg>
             </span>
           </div>
@@ -461,7 +474,9 @@ export function Hero() {
 
           <div className="oaks-bottom">
             <div className="oaks-title-block">
-              <div className="oaks-tender" aria-label="Tender with Vows">TENDER</div>
+              <div className="oaks-tender" aria-label="Tender with Vows">
+                TENDER
+              </div>
               <div className="oaks-with-vows">
                 <span className="oaks-with">with</span>
                 <span className="oaks-vows">VOWS</span>
@@ -474,13 +489,17 @@ export function Hero() {
 
             <div className="oaks-footer-mobile">
               <div className="oaks-footer-label">PREMIUM WEDDING HOUSE</div>
-              <div className="oaks-cities">MUMBAI • KERALA • JAIPUR • BANGALORE • DUBAI • UK • AUSTRIA</div>
+              <div className="oaks-cities">
+                MUMBAI • KERALA • JAIPUR • BANGALORE • DUBAI • UK • AUSTRIA
+              </div>
             </div>
           </div>
 
           <div className="oaks-footer-centre" aria-hidden="true">
             <div className="oaks-footer-label">PREMIUM WEDDING HOUSE</div>
-            <div className="oaks-cities">MUMBAI • KERALA • JAIPUR • BANGALORE • DUBAI • UK • AUSTRIA</div>
+            <div className="oaks-cities">
+              MUMBAI • KERALA • JAIPUR • BANGALORE • DUBAI • UK • AUSTRIA
+            </div>
           </div>
         </div>
       </section>
