@@ -290,8 +290,8 @@ export function Hero() {
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
           .label-archive, .label-collector { bottom: 43%; }
-          .label-curated, .label-oaks-studio { bottom: 5.6rem; }
-          .oaks-footer-mobile .oaks-cities { margin-top: 1.2rem; }
+          .label-curated, .label-oaks-studio { bottom: 6rem; }
+          .oaks-footer-mobile .oaks-cities { margin-top: 2rem; }
         }
 
 
