@@ -269,9 +269,15 @@ export function Hero() {
           .oaks-masthead-wrap { display: none; }
           .oaks-india { display: none; }
           .oaks-top { display: flex; justify-content: space-between; }
+          .oaks-menu { display: none; }
           .oaks-title-block { display: none; }
           .meta-left, .meta-right { top: 37% !important; }
+          .oaks-meta-left span:nth-child(1),
+          .oaks-meta-left span:nth-child(2) { display: none; }
+          .label-archive, .label-collector { bottom: 43%; }
+          .label-curated, .label-oaks-studio { bottom: 12%; }
         }
+
 
         /* MOBILE (<640px) */
         .oaks-masthead { font-size: clamp(88px, 26vw, 140px); }
