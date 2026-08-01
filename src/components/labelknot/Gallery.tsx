@@ -71,78 +71,37 @@ export function Gallery() {
       <div className="grid grid-cols-3 gap-[2px]">
         {cells.map((c, i) =>
           c.kind === "img" ? (
-            i === 9 ? (
-              <div
-                key={i}
-                className="aspect-[4/5] flex items-center justify-center"
-                style={{ backgroundColor: "var(--sand)" }}
-              >
-                <p
-                  style={{
-                    fontFamily: "'Pinyon Script', cursive",
-                    fontSize: "clamp(1.6rem, 5.2vw, 2.5rem)",
-                    lineHeight: 1.35,
-                    color: "var(--everest)",
-                    textAlign: "center",
-                    padding: "0 8%",
-                    opacity: 0.88,
-                  }}
-                >
-                  Love That Lives On
-                </p>
-              </div>
-            ) : i === 34 ? (
-              <div
-                key={i}
-                className="aspect-[4/5] flex items-center justify-center"
-                style={{ backgroundColor: "var(--sand)" }}
-              >
-                <p
-                  style={{
-                    fontFamily: "'Pinyon Script', cursive",
-                    fontSize: "clamp(1.6rem, 5.2vw, 2.5rem)",
-                    lineHeight: 1.35,
-                    color: "var(--everest)",
-                    textAlign: "center",
-                    padding: "0 8%",
-                    opacity: 0.88,
-                  }}
-                >
-                  Cherished forever.
-                </p>
-              </div>
-            ) : i === 42 || i === 44 ? (
-              <div
-                key={i}
-                className="aspect-[4/5] flex items-center justify-center"
-                style={{ backgroundColor: "var(--sand)" }}
-              >
-                <p
-                  style={{
-                    fontFamily: "'Pinyon Script', cursive",
-                    fontSize: "clamp(1.6rem, 5.2vw, 2.5rem)",
-                    lineHeight: 1.35,
-                    color: "var(--everest)",
-                    textAlign: "center",
-                    padding: "0 8%",
-                    opacity: 0.88,
-                  }}
-                >
-                  {i === 42 ? "Quiet Grace" : "Forever Yours"}
-                </p>
-              </div>
-            ) : (
-              <figure key={i} className="relative overflow-hidden group bg-[var(--milk)] aspect-[4/5]">
-                <img
-                  src={c.src}
-                  alt={`Label Knot frame ${i + 1}`}
-                  loading={i < 6 ? "eager" : "lazy"}
-                  style={{ objectPosition: getPosition(i) }}
-                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-                />
-              </figure>
-            )
+            <figure key={i} className="relative overflow-hidden group bg-[var(--milk)] aspect-[4/5]">
+              <img
+                src={c.src}
+                alt={`Label Knot frame ${i + 1}`}
+                loading={i < 6 ? "eager" : "lazy"}
+                style={{ objectPosition: getPosition(i) }}
+                className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+              />
+            </figure>
           ) : (
+            <div
+              key={i}
+              className="aspect-[4/5] flex items-center justify-center"
+              style={{ backgroundColor: "var(--sand)" }}
+            >
+              <p
+                style={{
+                  fontFamily: "'Pinyon Script', cursive",
+                  fontSize: "clamp(1.6rem, 5.2vw, 2.5rem)",
+                  lineHeight: 1.35,
+                  color: "var(--everest)",
+                  textAlign: "center",
+                  padding: "0 8%",
+                  opacity: 0.88,
+                }}
+              >
+                {c.line}
+              </p>
+            </div>
+          ),
+        )}
             <div
               key={i}
               className="aspect-[4/5] flex items-center justify-center"
