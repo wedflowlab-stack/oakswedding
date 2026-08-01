@@ -102,27 +102,6 @@ export function Gallery() {
             </div>
           ),
         )}
-            <div
-              key={i}
-              className="aspect-[4/5] flex items-center justify-center"
-              style={{ backgroundColor: "var(--sand)" }}
-            >
-              <p
-                style={{
-                  fontFamily: "'Pinyon Script', cursive",
-                  fontSize: "clamp(1.6rem, 5.2vw, 2.5rem)",
-                  lineHeight: 1.35,
-                  color: "var(--everest)",
-                  textAlign: "center",
-                  padding: "0 8%",
-                  opacity: 0.88,
-                }}
-              >
-                {c.line}
-              </p>
-            </div>
-          ),
-        )}
       </div>
     </section>
   );
