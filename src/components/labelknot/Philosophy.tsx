@@ -110,7 +110,7 @@ export function Philosophy() {
             <div className="col-span-6 md:col-span-4 md:col-start-6 md:mt-0 self-start">
               <figure>
                 <img
-                  src={GALLERY_POOL[5]}
+                  src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232503/SaveClip.App_657715536_18178895965380706_4306185084163071359_n_w4pv9w.jpg"
                   alt="A held breath, captured"
                   className="w-full aspect-square object-cover"
                 />
@@ -127,7 +127,7 @@ export function Philosophy() {
             <div className="col-span-6 md:col-span-3 md:mt-0 self-start">
               <figure>
                 <img
-                  src={GALLERY_POOL[6]}
+                  src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232497/SaveClip.App_642604422_18437630464112437_3954472121064538389_n_fuwdaq.jpg"
                   alt="Light, draped"
                   className="w-full aspect-[3/4] object-cover"
                 />
