@@ -1,4 +1,3 @@
-import { GALLERY_POOL } from "@/lib/labelknot-images";
 import { useRef, useState, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 

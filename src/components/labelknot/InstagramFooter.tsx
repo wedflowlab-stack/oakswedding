@@ -1,12 +1,10 @@
-import { GALLERY_POOL } from "@/lib/labelknot-images";
-
 const FEED = [
-  GALLERY_POOL[2],
-  GALLERY_POOL[6],
-  GALLERY_POOL[5],
-  GALLERY_POOL[10],
-  GALLERY_POOL[0],
-  GALLERY_POOL[13],
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232492/SaveClip.App_641741154_18436996375112437_285037600767506686_n_akzm26.jpg",
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785231575/ChatGPT_Image_Jul_28_2026_02_25_52_PM_umm8ot.webp",
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785231575/ChatGPT_Image_Jul_28_2026_02_23_45_PM_hffze7.webp",
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226100/ChatGPT_Image_Jul_28_2026_01_24_22_PM_wbskqt.webp",
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232503/SaveClip.App_657715536_18178895965380706_4306185084163071359_n_w4pv9w.jpg",
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232487/ChatGPT_Image_Jul_28_2026_03_21_11_PM_jtfrfm.webp",
 ];
 
 export function InstagramFooter() {
