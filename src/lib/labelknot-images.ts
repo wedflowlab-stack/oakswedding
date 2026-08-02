@@ -1,3 +1,5 @@
+import frame34Zoomed from "@/assets/oaks-frame34-zoomed.jpg";
+
 export const HERO_IMAGE =
   "https://res.cloudinary.com/dtembvivw/image/upload/v1779732042/SaveClip.App_518998457_18085834000704263_2487413177226220895_n_tfq7bv.jpg";
 
@@ -41,7 +43,7 @@ export const OAKS_GALLERY = [
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226453/ChatGPT_Image_Jul_28_2026_01_41_21_PM_yjm5sk.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226452/ChatGPT_Image_Jul_28_2026_01_43_09_PM_p6voez.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226453/ChatGPT_Image_Jul_28_2026_01_41_30_PM_qdw6mu.webp",
-  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785651717/ChatGPT_Image_Jul_27_2026_09_33_22_PM_mjqur0.webp",
+  frame34Zoomed,
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226454/ChatGPT_Image_Jul_28_2026_01_39_41_PM_ucc12a.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226101/ChatGPT_Image_Jul_28_2026_01_17_29_PM_hljj7w.webp",
 ];
