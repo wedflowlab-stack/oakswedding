@@ -37,7 +37,7 @@ export const OAKS_GALLERY = [
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226100/ChatGPT_Image_Jul_28_2026_01_34_58_PM_hmlte2.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785653693/ChatGPT_Image_Aug_2_2026_12_18_23_PM_lgrqov.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785653730/ChatGPT_Image_Aug_2_2026_12_25_07_PM_qchatg.webp",
-  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226100/ChatGPT_Image_Jul_28_2026_01_19_56_PM_pk0ruk.webp",
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226454/ChatGPT_Image_Jul_28_2026_01_39_41_PM_ucc12a.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226101/ChatGPT_Image_Jul_28_2026_01_09_28_PM_v7owuv.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785227998/ChatGPT_Image_Jul_28_2026_02_07_10_PM_do4urf.webp",
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226453/ChatGPT_Image_Jul_28_2026_01_41_21_PM_yjm5sk.webp",
