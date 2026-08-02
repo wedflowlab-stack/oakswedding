@@ -17,6 +17,9 @@ const TEXT_CELLS: Record<number, string> = {
   44: "Forever Yours",
 };
 
+// Frames whose artwork has a printed white border — show the whole image.
+const FULL_FRAME = new Set<number>([10, 25]);
+
 function buildCells(): Cell[] {
   const cells: Cell[] = [];
   let imgIdx = 0;
@@ -80,15 +83,24 @@ export function Gallery() {
       <div className="grid grid-cols-3 gap-[2px]">
         {cells.map((c, i) =>
           c.kind === "img" ? (
-            <figure key={i} className="relative overflow-hidden group bg-[var(--milk)] aspect-[4/5]">
+            <figure key={i} className="relative overflow-hidden group bg-white aspect-[4/5]">
               <img
                 src={c.src}
                 alt={`Label Knot frame ${i + 1}`}
                 loading={i < 6 ? "eager" : "lazy"}
-                style={{ objectPosition: getPosition(i) }}
-                className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                style={
+                  FULL_FRAME.has(c.idx)
+                    ? undefined
+                    : { objectPosition: getPosition(i) }
+                }
+                className={
+                  FULL_FRAME.has(c.idx)
+                    ? "w-full h-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                    : "w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                }
               />
             </figure>
+
           ) : (
             <div
               key={i}
