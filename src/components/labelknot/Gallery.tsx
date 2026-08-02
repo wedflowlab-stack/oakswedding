@@ -28,6 +28,15 @@ function buildCells(): Cell[] {
       imgIdx++;
     }
   }
+  // "Timeless in Soft Light" moves to the cell holding Frame 24,
+  // and that frame takes over the vacated text cell.
+  const textCell = 17;
+  const frame24Cell = cells.findIndex((c) => c.kind === "img" && c.idx === 23);
+  if (frame24Cell !== -1) {
+    const tmp = cells[textCell];
+    cells[textCell] = cells[frame24Cell];
+    cells[frame24Cell] = tmp;
+  }
   return cells;
 }
 
