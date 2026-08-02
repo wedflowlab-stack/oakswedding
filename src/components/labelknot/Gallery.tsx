@@ -17,6 +17,9 @@ const TEXT_CELLS: Record<number, string> = {
   44: "Forever Yours",
 };
 
+// Frames whose artwork has a printed white border — show the whole image.
+const FULL_FRAME = new Set<number>([10, 25]);
+
 function buildCells(): Cell[] {
   const cells: Cell[] = [];
   let imgIdx = 0;
