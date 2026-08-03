@@ -96,22 +96,19 @@ export function Founder() {
               over.
             </p>
             <p>
-              Fourfold Pictures was founded by <strong>Gaurav Shukla</strong> — visual
-              storyteller and globally appointed <em>Canon Explorer of Light</em> Ambassador for
-              India — on one uncompromising belief: that great wedding photography is not a
-              service rendered on the day. It is the only thing about that day you will ever be
-              able to relive.
-            </p>
-            <p className="font-display italic text-xl md:text-2xl" style={{ color: "var(--everest)" }}>
-              Not remember. Relive.
+              OAKS was founded by <strong>Rahul and Nasif</strong> — not with a business plan, but with a question neither of them could stop asking: why does wedding photography so rarely feel like the day actually felt?
             </p>
             <p>
-              We understand every ritual, every room, every relationship in it. We know which
-              moments will matter most in thirty years — even when no one in the room is
-              thinking that far ahead.
+              That question became a 25-member team. A body of work recognised by Polka Cafe, named among the Top 20 Indian Wedding Experts by Wezoree, and published in India Today and Wedding Sutra. Weddings documented from Kerala to the mountains, from coastal celebrations to Austria.
             </p>
-            <p className="font-display italic">
-              Every event happens only once. We make sure it lasts forever.
+            <p>
+              Behind every frame OAKS produces is a way of seeing that is taught, not assumed. Creative Director <strong>Ajin Tom</strong> has spent years training the team to move past the moment itself — into the feeling underneath it. The expression before the tears arrive. The silence that carries more than anything said out loud.
+            </p>
+            <p className="font-display italic text-xl md:text-2xl" style={{ color: "var(--everest)" }}>
+              Couples who trusted OAKS keep saying the same thing — they felt understood before the first photograph was taken.
+            </p>
+            <p className="font-display uppercase tracking-masthead text-sm" style={{ color: "var(--everest)" }}>
+              That is not an accident. That is the entire intention.
             </p>
           </div>
         </div>
