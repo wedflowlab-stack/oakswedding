@@ -65,13 +65,13 @@ export function Gallery() {
           className="editorial-headline text-4xl md:text-6xl mx-auto max-w-4xl uppercase tracking-tight"
           style={{ color: "var(--everest)" }}
         >
-          The Frames That Felt Like Breathing
+          For Everything Words Couldn't Hold
         </h2>
         <p
           className="font-display italic mt-6 mx-auto max-w-2xl text-lg md:text-2xl"
           style={{ color: "var(--everest)" }}
         >
-          Everything the eye almost missed — we were already watching before it happened.
+          Some feelings were never meant to be explained — only noticed, beautifully framed, and carried with you forever.
         </p>
       </div>
 
