@@ -36,9 +36,14 @@ export function Philosophy() {
               className="editorial-headline text-4xl md:text-6xl lg:text-7xl tracking-widest uppercase"
               style={{ color: "var(--everest)", lineHeight: 1.06, textAlign: "center" }}
             >
-              After the last dance,
+              Everyone was there.
               <br />
-              <em className="font-display italic normal-case tracking-normal">what remains?</em>
+              <em
+                className="font-display italic normal-case tracking-normal"
+                style={{ fontSize: "0.85em" }}
+              >
+                You will remember almost none of it.
+              </em>
             </h2>
 
             <div className="mt-10 max-w-[680px] mx-auto">
@@ -52,22 +57,9 @@ export function Philosophy() {
                   textAlign: "center",
                 }}
               >
-                The venue will host another wedding next weekend. The flowers will be gone by
-                morning. The dress, folded away. The cake, a photograph on someone's phone.
-              </p>
-
-              {/* Body 1 */}
-              <p
-                className="font-display mt-8"
-                style={{
-                  fontSize: "20px",
-                  color: "var(--everest)",
-                  lineHeight: 1.7,
-                  textAlign: "center",
-                }}
-              >
-                But there will be a moment — sometime in the years ahead — when you sit with the
-                person you married and you reach for that day. Not the highlight reel.
+                You will spend months on this wedding. The venue. The flowers. The food. The
+                outfits. Every detail will feel important — because it is. This is not the time for
+                shortcuts.
               </p>
 
               {/* Emphasis line — stands alone */}
@@ -82,7 +74,38 @@ export function Philosophy() {
                   fontWeight: 600,
                 }}
               >
-                The real version.
+                But here is the thing nobody tells you:
+              </p>
+
+              {/* Body 1 */}
+              <p
+                className="font-display mt-8"
+                style={{
+                  fontSize: "20px",
+                  color: "var(--everest)",
+                  lineHeight: 1.7,
+                  textAlign: "center",
+                }}
+              >
+                Every single thing you are micromanaging right now will fade. The flowers will be
+                forgotten. The venue becomes someone else's event. The food — already gone. The
+                music — a feeling with no name attached to it.
+              </p>
+
+              {/* Emphasis line — stands alone */}
+              <p
+                className="font-display italic"
+                style={{
+                  fontSize: "clamp(25px, 2.6vw, 33px)",
+                  color: "var(--everest)",
+                  lineHeight: 1.15,
+                  margin: "28px 0",
+                  textAlign: "center",
+                  fontWeight: 600,
+                }}
+              >
+                The only thing that can physically return you to that day — twenty years from now —
+                are the photographs.
               </p>
 
               {/* Body 2 */}
@@ -95,15 +118,12 @@ export function Philosophy() {
                   textAlign: "center",
                 }}
               >
-                The way he looked at you before you walked in. Your mother's face when she first
-                saw you ready. The cousin who flew across the world, finally in the same room. The
-                kids on the dance floor who didn't care about anything except that moment. Your
-                grandmother, quietly watching everything, holding it all in.
+                Not just the photographs. The moments inside them.
               </p>
             </div>
           </div>
 
-          {/* Secondary images */}
+          {/* Secondary images — Pl. 02 */}
           <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-14">
             {/* Square — right middle */}
             <div className="col-span-6 md:col-span-4 md:col-start-6 md:mt-0 self-start">
@@ -121,7 +141,28 @@ export function Philosophy() {
                 </figcaption>
               </figure>
             </div>
+          </div>
 
+          {/* Body paragraph after Pl. 02 */}
+          <div className="mt-10 max-w-[680px] mx-auto text-center">
+            <p
+              className="font-display"
+              style={{
+                fontSize: "20px",
+                color: "var(--everest)",
+                lineHeight: 1.7,
+                textAlign: "center",
+              }}
+            >
+              Your mother, watching you from across the room, understanding something you will only
+              understand yourself when your own child stands where you are standing. The cousin who
+              flew across the world to be in that room. Your father's face — the one he made when he
+              thought no one was looking.
+            </p>
+          </div>
+
+          {/* Secondary images — Pl. 03 */}
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-14">
             {/* Portrait — right end */}
             <div className="col-span-6 md:col-span-3 md:mt-0 self-start">
               <figure>
@@ -139,107 +180,77 @@ export function Philosophy() {
               </figure>
             </div>
           </div>
-        </div>
 
-        {/* Urgency seed block */}
-        <div className="mt-10 md:mt-14 mx-auto max-w-xl">
-          {/* Top rule — sand */}
-          <div
-            className="rule-thin mb-10 mx-auto"
-            style={{ borderColor: "var(--sand)", width: "40px" }}
-          />
+          {/* Urgency seed block */}
+          <div className="mt-10 md:mt-14 mx-auto max-w-xl">
+            {/* Top rule — sand */}
+            <div
+              className="rule-thin mb-10 mx-auto"
+              style={{ borderColor: "var(--sand)", width: "40px" }}
+            />
 
-          {/* Three-line punch */}
-          <div style={{ margin: "0 0 32px 0" }}>
+            {/* Three-line punch */}
+            <div style={{ margin: "0 0 32px 0" }}>
+              <p
+                className="font-display"
+                style={{
+                  fontSize: "clamp(25px, 2.6vw, 35px)",
+                  color: "var(--everest)",
+                  lineHeight: 1.15,
+                  textAlign: "center",
+                  fontWeight: 500,
+                }}
+              >
+                These moments are happening whether someone is watching for them or not.
+              </p>
+              <p
+                className="font-display"
+                style={{
+                  fontSize: "clamp(25px, 2.6vw, 35px)",
+                  color: "var(--everest)",
+                  lineHeight: 1.15,
+                  margin: "8px 0",
+                  textAlign: "center",
+                  fontWeight: 500,
+                }}
+              >
+                The only question is whether they are captured.
+              </p>
+              <p
+                className="font-display"
+                style={{
+                  fontSize: "clamp(25px, 2.6vw, 35px)",
+                  color: "var(--everest)",
+                  lineHeight: 1.15,
+                  textAlign: "center",
+                  fontWeight: 500,
+                }}
+              >
+                Or whether they are simply gone.
+              </p>
+            </div>
+
+            {/* Bottom rule — sand */}
+            <div
+              className="rule-thin mb-8 mt-12 mx-auto"
+              style={{ borderColor: "var(--sand)", width: "40px" }}
+            />
+
+            {/* Closing italic */}
             <p
-              className="font-display"
+              className="font-display italic"
               style={{
-                fontSize: "clamp(25px, 2.6vw, 35px)",
+                fontSize: "clamp(20px, 2vw, 27px)",
                 color: "var(--everest)",
-                lineHeight: 1.15,
+                lineHeight: 1.4,
+                marginBottom: "40px",
                 textAlign: "center",
-                fontWeight: 500,
+                fontWeight: 400,
               }}
             >
-              These moments don't repeat.
-            </p>
-            <p
-              className="font-display"
-              style={{
-                fontSize: "clamp(25px, 2.6vw, 35px)",
-                color: "var(--everest)",
-                lineHeight: 1.15,
-                margin: "8px 0",
-                textAlign: "center",
-                fontWeight: 500,
-              }}
-            >
-              They don't wait.
-            </p>
-            <p
-              className="font-display"
-              style={{
-                fontSize: "clamp(25px, 2.6vw, 35px)",
-                color: "var(--everest)",
-                lineHeight: 1.15,
-                textAlign: "center",
-                fontWeight: 500,
-              }}
-            >
-              And most of them happen when nobody is looking.
+              What remains after everything else fades — is what we create.
             </p>
           </div>
-
-          {/* Bottom rule — sand */}
-          <div
-            className="rule-thin mb-8 mt-12 mx-auto"
-            style={{ borderColor: "var(--sand)", width: "40px" }}
-          />
-
-          {/* Body */}
-          <p
-            className="font-display"
-            style={{
-              fontSize: "20px",
-              color: "var(--everest)",
-              lineHeight: 1.7,
-              marginBottom: "40px",
-              textAlign: "center",
-            }}
-          >
-            We are not just here to document your wedding. We are here so that twenty years from
-            now, when your daughter asks what it felt like —
-          </p>
-
-          {/* Closing italic */}
-          <p
-            className="font-display italic"
-            style={{
-              fontSize: "clamp(20px, 2vw, 27px)",
-              color: "var(--everest)",
-              lineHeight: 1.4,
-              marginBottom: "40px",
-              textAlign: "center",
-              fontWeight: 400,
-            }}
-          >
-            So that when you reach for that feeling — every feeling is still there, unchanged,
-            waiting for you.
-          </p>
-
-          {/* Final sign-off */}
-          <p
-            className="font-display uppercase"
-            style={{
-              fontSize: "16px",
-              color: "var(--everest)",
-              letterSpacing: "0.18em",
-              marginBottom: "32px",
-              textAlign: "center",
-            }}
-          >
-            What remains after everything else fades — is what we create.
-          </p>
         </div>
       </div>
     </section>
