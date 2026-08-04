@@ -49,7 +49,7 @@ export function Founder() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-12 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-6 lg:col-span-5 md:order-1">
           <div
-            className="relative mx-auto w-full max-w-[540px] aspect-[5/6] md:max-w-[620px] md:aspect-[6/7] overflow-hidden p-[5px]"
+            className="relative mx-auto w-full max-w-[540px] aspect-[16/9] md:max-w-[620px] md:aspect-[16/9] overflow-hidden p-[5px]"
             style={{
               backgroundColor: "#E4DBC4",
               boxShadow: "0 18px 40px rgba(70, 52, 19, 0.14)",
