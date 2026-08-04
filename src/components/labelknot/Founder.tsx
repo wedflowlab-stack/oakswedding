@@ -22,7 +22,6 @@ const FOUNDER_SLIDES = [
   "https://res.cloudinary.com/dtembvivw/image/upload/v1785852410/ChatGPT_Image_Aug_4_2026_07_29_36_PM_1_zpoo6p.webp",
 ];
 
-const FOUNDER_SLIDE_STYLES = ["contain"] as const;
 
 export function Founder() {
   const [current, setCurrent] = useState(0);
@@ -47,35 +46,28 @@ export function Founder() {
       style={{ backgroundColor: "var(--sand)", color: "var(--everest)" }}
     >
       <div className="mx-auto max-w-[1400px] px-6 md:px-12 grid md:grid-cols-12 gap-12">
-        <div className="md:col-span-6 lg:col-span-5 md:order-1">
-          <div
-            className="relative mx-auto w-full max-w-[540px] aspect-[16/9] md:max-w-[620px] md:aspect-[16/9] overflow-hidden p-[5px]"
-            style={{
-              backgroundColor: "#E4DBC4",
-              boxShadow: "0 18px 40px rgba(70, 52, 19, 0.14)",
-            }}
-          >
-            <div className="relative w-full h-full overflow-hidden bg-[#120f0a]">
-              {FOUNDER_SLIDES.map((src, i) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt="OAKS — founder & studio"
-                  className="absolute inset-0 h-full w-full"
-                  style={{
-                    opacity: i === current ? 1 : 0,
-                    transition: "opacity 1.2s ease-in-out",
-                    objectFit: FOUNDER_SLIDE_STYLES[i],
-                    objectPosition: "center center",
-                  }}
-                  loading={i === 0 ? "eager" : "lazy"}
-                />
-              ))}
-            </div>
+        <div className="md:col-span-12 md:order-1">
+          <div className="relative mx-auto w-[92vw] aspect-[4/3] md:w-[88vw] md:aspect-[16/9] lg:w-[72vw] overflow-hidden">
+            {FOUNDER_SLIDES.map((src, i) => (
+              <img
+                key={src}
+                src={src}
+                alt="OAKS — founder & studio"
+                className="absolute inset-0 h-full w-full"
+                style={{
+                  opacity: i === current ? 1 : 0,
+                  transition: "opacity 1.2s ease-in-out",
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                }}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            ))}
           </div>
         </div>
 
-        <div className="md:col-span-6 lg:col-span-7 md:order-2 md:pt-12 md:pl-6 lg:pl-16 text-center">
+
+        <div className="md:col-span-12 md:order-2 md:pt-12 text-center">
           <div className="flex justify-center mb-8">
             <img
               src={OAKS_LOGO_BLACK}
