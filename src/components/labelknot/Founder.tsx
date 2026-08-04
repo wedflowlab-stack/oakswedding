@@ -19,11 +19,10 @@ const TIMES_LOGO =
   "https://res.cloudinary.com/drszur4wl/image/upload/v1776868875/times_of_india-Photoroom_wtd0eu.png";
 
 const FOUNDER_SLIDES = [
-  "https://res.cloudinary.com/dtembvivw/image/upload/v1779731626/SaveClip.App_670986817_18579183334008962_886943027846087425_n_ypxhre.jpg",
-  "https://res.cloudinary.com/dtembvivw/image/upload/q_auto/f_auto/v1780301353/ChatGPT_Image_May_25_2026_11_33_59_PM_ze01as.png",
+  "https://res.cloudinary.com/dtembvivw/image/upload/v1785852410/ChatGPT_Image_Aug_4_2026_07_29_36_PM_1_zpoo6p.webp",
 ];
 
-const FOUNDER_SLIDE_STYLES = ["cover", "contain"] as const;
+const FOUNDER_SLIDE_STYLES = ["cover"] as const;
 
 export function Founder() {
   const [current, setCurrent] = useState(0);
@@ -79,8 +78,8 @@ export function Founder() {
         <div className="md:col-span-6 lg:col-span-7 md:order-2 md:pt-12 md:pl-6 lg:pl-16 text-center">
           <div className="flex justify-center mb-8">
             <img
-              src={FOURFOLD_LOGO_BLACK}
-              alt="Fourfold Pictures"
+              src={OAKS_LOGO_BLACK}
+              alt="OAKS Wedding"
               className="w-[70vw] max-w-[360px] md:max-w-[420px] select-none pointer-events-none"
               draggable={false}
             />
