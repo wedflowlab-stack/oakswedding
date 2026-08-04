@@ -22,7 +22,7 @@ const FOUNDER_SLIDES = [
   "https://res.cloudinary.com/dtembvivw/image/upload/v1785852410/ChatGPT_Image_Aug_4_2026_07_29_36_PM_1_zpoo6p.webp",
 ];
 
-const FOUNDER_SLIDE_STYLES = ["cover"] as const;
+const FOUNDER_SLIDE_STYLES = ["contain"] as const;
 
 export function Founder() {
   const [current, setCurrent] = useState(0);
