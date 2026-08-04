@@ -22,7 +22,6 @@ const FOUNDER_SLIDES = [
   "https://res.cloudinary.com/dtembvivw/image/upload/v1785852410/ChatGPT_Image_Aug_4_2026_07_29_36_PM_1_zpoo6p.webp",
 ];
 
-const FOUNDER_SLIDE_STYLES = ["contain"] as const;
 
 export function Founder() {
   const [current, setCurrent] = useState(0);
@@ -68,7 +67,7 @@ export function Founder() {
         </div>
 
 
-        <div className="md:col-span-6 lg:col-span-7 md:order-2 md:pt-12 md:pl-6 lg:pl-16 text-center">
+        <div className="md:col-span-12 md:order-2 md:pt-12 text-center">
           <div className="flex justify-center mb-8">
             <img
               src={OAKS_LOGO_BLACK}
