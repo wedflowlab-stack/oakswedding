@@ -55,7 +55,7 @@ export function Awards() {
 
         <div
           className="py-16 md:py-20 px-6 md:px-12 mb-16 md:mb-20"
-          style={{ backgroundColor: "#18442A" }}
+          style={{ backgroundColor: "#4E0000" }}
         >
           <h2
             className="font-display text-center uppercase mb-12"
@@ -76,7 +76,7 @@ export function Awards() {
               <div
                 key={i}
                 className="px-8 py-10 text-center flex flex-col items-center"
-                style={{ backgroundColor: "#18442A" }}
+                style={{ backgroundColor: "#4E0000" }}
               >
                 <img
                   src={e.image}
