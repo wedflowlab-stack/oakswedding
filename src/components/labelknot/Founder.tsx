@@ -60,7 +60,7 @@ export function Founder() {
                 <img
                   key={src}
                   src={src}
-                  alt="Fourfold Pictures — founder & studio"
+                  alt="OAKS — founder & studio"
                   className="absolute inset-0 h-full w-full"
                   style={{
                     opacity: i === current ? 1 : 0,
