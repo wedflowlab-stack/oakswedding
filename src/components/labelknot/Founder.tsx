@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const FOURFOLD_LOGO_BLACK =
-  "https://res.cloudinary.com/dtembvivw/image/upload/v1784292556/fourfold-logo-black_reywle.png";
+const OAKS_LOGO_BLACK =
+  "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785162989/oaks_n1szuc.png";
 
 const VOGUE_LOGO =
   "https://res.cloudinary.com/drszur4wl/image/upload/v1776868855/VOGUE_2_-Photoroom_e0bxv3.png";
