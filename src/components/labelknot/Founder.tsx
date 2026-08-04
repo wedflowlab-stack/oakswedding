@@ -108,7 +108,7 @@ export function Founder() {
       {/* As Seen In — Editorial Grid v8 */}
       <div
         className="relative w-full overflow-hidden mt-20 md:mt-28"
-        style={{ backgroundColor: "#18442A" }}
+        style={{ backgroundColor: "#4E0000" }}
       >
         <div className="px-6 md:px-12 py-20 md:py-28">
           {/* Header */}
