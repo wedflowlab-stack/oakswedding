@@ -332,6 +332,8 @@ export function Hero() {
 
         /* DESKTOP (>=1024px) — editorial cover composition */
         .oaks-bride-overlay { display: none; }
+        .desk-corner { display: none; }
+
 
         @media (min-width: 1024px) {
           .oaks-hero { min-height: 100vh; height: 100vh; }
