@@ -510,6 +510,8 @@ export function Hero() {
 
       <section id="top" className="oaks-hero" aria-label="Oaks Wedding — editorial hero">
         <div className="oaks-bg" role="img" aria-hidden="true" />
+        <div className="oaks-bride-overlay" aria-hidden="true" />
+
 
         <div className="oaks-masthead-wrap" aria-hidden="true">
           <h1 className="oaks-masthead">OAKS</h1>
