@@ -366,6 +366,20 @@ export function Hero() {
             clip-path: polygon(44% 13%, 60.5% 13%, 60.5% 100%, 44% 100%);
             pointer-events: none;
           }
+          .oaks-bride-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+              linear-gradient(to bottom,
+                rgba(10,9,6,0.30) 0%,
+                rgba(10,9,6,0.08) 26%,
+                rgba(10,9,6,0.06) 60%,
+                rgba(10,9,6,0.30) 86%,
+                rgba(10,9,6,0.55) 100%
+              );
+          }
+
 
           .oaks-content { z-index: 4; }
 
