@@ -215,13 +215,13 @@ function PressFeatured({
       className="relative group flex items-center justify-center transition-colors duration-[400ms]"
       style={{
         padding: compact ? "24px 24px" : "28px 24px",
-        backgroundColor: "#18442A",
+        backgroundColor: "#4E0000",
         borderBottom: compact ? "none" : "1px solid rgba(229,219,196,0.12)",
       }}
       onMouseEnter={(e) =>
         (e.currentTarget.style.backgroundColor = "rgba(253,251,240,0.04)")
       }
-      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#18442A")}
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#4E0000")}
     >
       <span
         className="absolute font-display uppercase"
@@ -285,13 +285,13 @@ function PressCell({
       style={{
         padding: isThreeCol ? "20px 16px" : "24px 20px",
         gap: "12px",
-        backgroundColor: "#18442A",
+        backgroundColor: "#4E0000",
         borderRight: divider ? "1px solid rgba(229,219,196,0.12)" : "none",
       }}
       onMouseEnter={(e) =>
         (e.currentTarget.style.backgroundColor = "rgba(253,251,240,0.04)")
       }
-      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#18442A")}
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#4E0000")}
     >
       <span
         className="absolute font-display uppercase"
