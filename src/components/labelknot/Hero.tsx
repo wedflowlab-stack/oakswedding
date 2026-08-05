@@ -584,6 +584,20 @@ export function Hero() {
             </span>
           </div>
 
+          <div className="oaks-side-label desk-corner label-curated-desk" aria-hidden="true">
+            <span>CURATED</span>
+            <span>MEMORIES</span>
+            <div className="divider-h" />
+          </div>
+
+          <div className="oaks-side-label desk-corner label-studio-desk" aria-hidden="true">
+            <span>OAKS</span>
+            <span>STUDIO</span>
+            <div className="divider-h" style={{ marginLeft: "auto" }} />
+          </div>
+
+
+
           <div style={{ flex: 1 }} />
 
           <div className="oaks-bottom">
