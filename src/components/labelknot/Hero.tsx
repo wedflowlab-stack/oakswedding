@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
 const MOBILE_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
+const DESKTOP_IMAGE =
+  "https://res.cloudinary.com/pcodbmuo/image/upload/v1785948340/oaks_hero_desk_pe5rpp.webp";
+
 const LOGO_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
 
@@ -327,70 +330,194 @@ export function Hero() {
           .oaks-bottom { padding: 0 3rem 3.5rem; }
         }
 
-        /* DESKTOP (>=1024px) */
+        /* DESKTOP (>=1024px) — editorial cover composition */
+        .oaks-bride-overlay { display: none; }
+        .desk-corner { display: none; }
+
+
         @media (min-width: 1024px) {
-          .oaks-hero { min-height: 100vh; }
-          .oaks-bg { background-position: 42% 18%; }
+          .oaks-hero { min-height: 100vh; height: 100vh; }
+          .oaks-bg {
+            background-image: url('${DESKTOP_IMAGE}');
+            background-size: cover;
+            background-position: center center;
+          }
           .oaks-bg::after {
             background:
               linear-gradient(to bottom,
-                rgba(10,9,6,0.22) 0%,
-                rgba(10,9,6,0.02) 28%,
-                rgba(10,9,6,0.02) 52%,
-                rgba(10,9,6,0.45) 78%,
-                rgba(10,9,6,0.75) 100%
-              ),
-              linear-gradient(to right,
-                rgba(10,9,6,0.18) 0%,
-                transparent 60%
+                rgba(10,9,6,0.30) 0%,
+                rgba(10,9,6,0.08) 26%,
+                rgba(10,9,6,0.06) 60%,
+                rgba(10,9,6,0.30) 86%,
+                rgba(10,9,6,0.55) 100%
               );
           }
 
-          .oaks-top { padding: 3rem 4rem 0; }
-          .oaks-nav-logo img { height: 26px; }
-          .oaks-india { font-size: 11px; letter-spacing: 0.4em; top: 3rem; }
-          .oaks-meta-left span, .oaks-meta-right span { font-size: 10px; }
+          /* bride re-layered above the masthead so she interrupts the letters */
+          .oaks-bride-overlay {
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background-image: url('${DESKTOP_IMAGE}');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            clip-path: polygon(44% 13%, 60.5% 13%, 60.5% 100%, 44% 100%);
+            pointer-events: none;
+          }
+          .oaks-bride-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+              linear-gradient(to bottom,
+                rgba(10,9,6,0.30) 0%,
+                rgba(10,9,6,0.08) 26%,
+                rgba(10,9,6,0.06) 60%,
+                rgba(10,9,6,0.30) 86%,
+                rgba(10,9,6,0.55) 100%
+              );
+          }
 
-          .oaks-masthead { font-size: clamp(160px, 16vw, 260px); letter-spacing: -0.02em; }
-          .oaks-masthead-wrap { padding-top: clamp(52px, 5.5vw, 100px); }
+
+          .oaks-content { z-index: 4; }
+
+          .oaks-top { padding: 3vh 3.4vw 0; }
+          .oaks-nav-logo, .oaks-menu { display: none; }
+
+          .oaks-india {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-size: clamp(11px, 0.82vw, 15px);
+            letter-spacing: 0.52em;
+            text-indent: 0.52em;
+            top: 3.2vh;
+            color: rgba(253,248,220,0.82);
+          }
+
+          .oaks-masthead-wrap {
+            top: 5.2vh;
+            padding-top: 0;
+            z-index: 1;
+          }
+          .oaks-masthead {
+            font-family: 'Bodoni Moda', 'Didot', 'Bodoni 72', serif;
+            font-weight: 400;
+            font-size: clamp(200px, 25vw, 470px);
+            letter-spacing: -0.035em;
+            line-height: 0.82;
+            color: rgba(253,248,232,0.96);
+          }
+
+          .meta-left { top: 8.5vh !important; left: 3.4vw !important; }
+          .meta-right { top: 13.5vh !important; right: 3.4vw !important; }
+          .oaks-meta-left span, .oaks-meta-right span {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-size: clamp(10px, 0.75vw, 14px);
+            letter-spacing: 0.24em;
+            line-height: 1.75;
+            color: rgba(253,248,220,0.82);
+          }
+          .oaks-meta-left .divider, .oaks-meta-right .divider { width: 34px; margin-top: 10px; }
+
+          .oaks-side-label span {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-size: clamp(10px, 0.72vw, 13px);
+            letter-spacing: 0.26em;
+            line-height: 1.9;
+            color: rgba(253,248,220,0.8);
+          }
+          .oaks-side-label .divider-h { width: 34px; margin-top: 8px; }
+
+          .label-archive { left: 3.4vw; top: 46%; bottom: auto; }
+          .label-collector { right: 3.4vw; top: 46%; bottom: auto; }
+          .label-curated, .label-oaks-studio { display: none; }
+
+          .desk-corner { display: block; }
+          .label-curated-desk { left: 3.4vw; bottom: 10vh; }
+          .label-studio-desk { right: 3.4vw; bottom: 10vh; text-align: right; }
 
           .oaks-bottom {
-            padding: 0 4rem 4rem;
-            align-items: flex-end;
-            text-align: right;
-            padding-right: 5%;
-            padding-left: 52%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 16vh;
+            padding: 0;
+            align-items: center;
+            text-align: center;
+            z-index: 5;
           }
-          .oaks-title-block { align-items: flex-end; }
-          .oaks-with-vows { justify-content: flex-end; }
-          .oaks-hr { margin: 0.9rem 0 0.9rem auto; }
+          .oaks-title-block { align-items: center; margin-bottom: 0; }
+          .oaks-with-vows { justify-content: center; margin-top: -0.16em; }
+          .oaks-hr { display: none; }
 
-          .oaks-tender { font-size: clamp(80px, 9vw, 145px); }
-          .oaks-with { font-size: clamp(52px, 5.6vw, 88px); }
-          .oaks-vows { font-size: clamp(95px, 11vw, 172px); }
-          .oaks-rare { font-size: clamp(11px, 1.05vw, 17px); letter-spacing: 0.32em; }
-          .oaks-signature { font-size: clamp(18px, 1.8vw, 28px); }
-          .oaks-footer-label { font-size: clamp(9px, 0.75vw, 12px); }
-          .oaks-cities { font-size: clamp(13px, 1.1vw, 18px); }
+          .oaks-tender,
+          .oaks-vows {
+            font-family: 'Bodoni Moda', 'Didot', serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: rgba(253,248,232,0.97);
+          }
+          .oaks-tender {
+            font-size: clamp(78px, 8.6vw, 165px);
+            margin-right: 2.5vw;
+          }
+          .oaks-vows { font-size: clamp(88px, 9.8vw, 188px); }
+          .oaks-with {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(36px, 3.9vw, 76px);
+            margin-right: 0.14em;
+            margin-left: -2.2vw;
+            color: rgba(253,248,232,0.95);
+          }
 
-          .label-archive { left: 4rem; bottom: 40%; }
-          .label-collector { right: 4rem; bottom: 40%; }
-          .label-curated { left: 4rem; bottom: 8%; }
-          .label-oaks-studio { right: 4rem; bottom: 8%; }
-          .oaks-side-label span { font-size: 9px; letter-spacing: 0.24em; }
+          .oaks-rare {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-size: clamp(14px, 1.15vw, 22px);
+            letter-spacing: 0.42em;
+            text-indent: 0.42em;
+            margin-top: 0.9rem;
+            color: rgba(253,248,232,0.9);
+          }
+          .oaks-signature {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(15px, 1.15vw, 22px);
+            margin-top: 0.5rem;
+            color: rgba(253,248,232,0.85);
+          }
+
+          .oaks-footer-label {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-size: clamp(11px, 0.85vw, 16px);
+            letter-spacing: 0.34em;
+            text-indent: 0.34em;
+            color: rgba(253,248,232,0.88);
+          }
+          .oaks-cities {
+            font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+            font-size: clamp(11px, 0.85vw, 16px);
+            letter-spacing: 0.14em;
+            margin-top: 0.7rem;
+            color: rgba(253,248,232,0.8);
+          }
 
           .oaks-footer-mobile { display: none; }
           .oaks-footer-centre {
             display: block;
             position: absolute;
-            bottom: 3.8rem;
+            bottom: 5.5vh;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
             white-space: nowrap;
-            z-index: 3;
+            z-index: 5;
           }
         }
+
 
         @media (prefers-reduced-motion: reduce) {
           .oaks-bg { transition: none; }
@@ -399,6 +526,8 @@ export function Hero() {
 
       <section id="top" className="oaks-hero" aria-label="Oaks Wedding — editorial hero">
         <div className="oaks-bg" role="img" aria-hidden="true" />
+        <div className="oaks-bride-overlay" aria-hidden="true" />
+
 
         <div className="oaks-masthead-wrap" aria-hidden="true">
           <h1 className="oaks-masthead">OAKS</h1>
@@ -470,6 +599,20 @@ export function Hero() {
               </svg>
             </span>
           </div>
+
+          <div className="oaks-side-label desk-corner label-curated-desk" aria-hidden="true">
+            <span>CURATED</span>
+            <span>MEMORIES</span>
+            <div className="divider-h" />
+          </div>
+
+          <div className="oaks-side-label desk-corner label-studio-desk" aria-hidden="true">
+            <span>OAKS</span>
+            <span>STUDIO</span>
+            <div className="divider-h" style={{ marginLeft: "auto" }} />
+          </div>
+
+
 
           <div style={{ flex: 1 }} />
 
