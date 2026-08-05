@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284/MAIN_ohyo5s.webp";
 const MOBILE_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
+const DESKTOP_IMAGE =
+  "https://res.cloudinary.com/pcodbmuo/image/upload/v1785948340/oaks_hero_desk_pe5rpp.webp";
+
 const LOGO_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
 
