@@ -363,7 +363,7 @@ export function Hero() {
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            clip-path: polygon(41.5% 12%, 62.5% 12%, 62.5% 100%, 41.5% 100%);
+            clip-path: polygon(44% 13%, 60.5% 13%, 60.5% 100%, 44% 100%);
             pointer-events: none;
           }
 
