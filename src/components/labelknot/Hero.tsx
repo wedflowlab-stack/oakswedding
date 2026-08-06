@@ -4,7 +4,7 @@ const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284
 const MOBILE_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
 const DESKTOP_IMAGE =
-  "https://res.cloudinary.com/dtembvivw/image/upload/v1785995652/hero_ain_oks_thyb5n.webp";
+  "https://res.cloudinary.com/dtembvivw/image/upload/v1785997118/ChatGPT_Image_Aug_6_2026_11_47_57_AM_yzeufh.webp";
 
 const LOGO_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
