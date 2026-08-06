@@ -363,7 +363,17 @@ export function Hero() {
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            clip-path: polygon(44% 13%, 60.5% 13%, 60.5% 100%, 44% 100%);
+            /* silhouette-shaped mask: only the bride's body hides the masthead,
+               so the A and K strokes continue behind her instead of being cut away */
+            clip-path: polygon(
+              46.6% 13%, 55.2% 13%,
+              56.4% 24%, 57.4% 32%,
+              58.2% 40%, 58.8% 46%,
+              63% 46%, 63% 100%,
+              41% 100%, 41% 46%,
+              45.6% 46%, 45.4% 40%,
+              45.6% 32%, 45.9% 24%
+            );
             pointer-events: none;
           }
           .oaks-bride-overlay::after {
