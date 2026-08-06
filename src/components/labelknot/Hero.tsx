@@ -437,15 +437,15 @@ export function Hero() {
             color: rgba(253,248,232,0.97);
           }
           .oaks-tender {
-            font-size: clamp(78px, 8.6vw, 165px);
+            font-size: clamp(55px, 6.02vw, 116px);
             margin-right: 2.5vw;
           }
-          .oaks-vows { font-size: clamp(88px, 9.8vw, 188px); }
+          .oaks-vows { font-size: clamp(62px, 6.86vw, 132px); }
           .oaks-with {
             font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 400;
-            font-size: clamp(36px, 3.9vw, 76px);
+            font-size: clamp(25px, 2.73vw, 53px);
             margin-right: 0.14em;
             margin-left: -2.2vw;
             color: rgba(253,248,232,0.95);
@@ -453,7 +453,7 @@ export function Hero() {
 
           .oaks-rare {
             font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
-            font-size: clamp(14px, 1.15vw, 22px);
+            font-size: clamp(10px, 1.15vw, 18px);
             letter-spacing: 0.42em;
             text-indent: 0.42em;
             margin-top: 0.9rem;
