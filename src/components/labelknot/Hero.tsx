@@ -4,7 +4,7 @@ const HERO_IMAGE = "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785169284
 const MOBILE_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785216659/HERO_NEEW_gchwkx.png";
 const DESKTOP_IMAGE =
-  "https://res.cloudinary.com/pcodbmuo/image/upload/v1785948340/oaks_hero_desk_pe5rpp.webp";
+  "https://res.cloudinary.com/dtembvivw/image/upload/v1785995652/hero_ain_oks_thyb5n.webp";
 
 const LOGO_IMAGE =
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785208822/ChatGPT_Image_Jul_28_2026_08_48_23_AM_nktbkl.webp";
@@ -353,42 +353,10 @@ export function Hero() {
               );
           }
 
-          /* bride re-layered above the masthead so she interrupts the letters */
-          .oaks-bride-overlay {
-            display: block;
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            background-image: url('${DESKTOP_IMAGE}');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            /* silhouette-shaped mask: only the bride's body hides the masthead,
-               so the A and K strokes continue behind her instead of being cut away */
-            clip-path: polygon(
-              46.6% 13%, 55.2% 13%,
-              56.4% 24%, 57.4% 32%,
-              58.2% 40%, 58.8% 46%,
-              63% 46%, 63% 100%,
-              41% 100%, 41% 46%,
-              45.6% 46%, 45.4% 40%,
-              45.6% 32%, 45.9% 24%
-            );
-            pointer-events: none;
-          }
-          .oaks-bride-overlay::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-              linear-gradient(to bottom,
-                rgba(10,9,6,0.30) 0%,
-                rgba(10,9,6,0.08) 26%,
-                rgba(10,9,6,0.06) 60%,
-                rgba(10,9,6,0.30) 86%,
-                rgba(10,9,6,0.55) 100%
-              );
-          }
+          /* masthead is baked into the new desktop image */
+          .oaks-bride-overlay { display: none; }
+          .oaks-masthead-wrap { display: none; }
+
 
 
           .oaks-content { z-index: 4; }
