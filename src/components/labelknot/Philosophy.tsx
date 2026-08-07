@@ -166,7 +166,7 @@ export function Philosophy() {
 
 
           {/* Body paragraph after Pl. 02 */}
-          <div className="mt-10 max-w-[680px] mx-auto text-center">
+          <div className="mt-16 md:mt-24 max-w-[680px] mx-auto text-center">
             <p
               className="font-display"
               style={{
@@ -225,7 +225,7 @@ export function Philosophy() {
 
 
           {/* Urgency seed block */}
-          <div className="mt-10 md:mt-14 mx-auto max-w-xl">
+          <div className="mt-20 md:mt-28 mx-auto max-w-xl">
             {/* Top rule — sand */}
             <div
               className="rule-thin mb-10 mx-auto"
