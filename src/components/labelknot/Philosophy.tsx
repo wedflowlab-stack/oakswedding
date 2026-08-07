@@ -123,25 +123,47 @@ export function Philosophy() {
             </div>
           </div>
 
+          {/* Hero plate — Pl. 01, large, left-aligned */}
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-16 md:mt-28">
+            <div className="col-span-12 md:col-span-7 md:col-start-1 self-start">
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226101/ChatGPT_Image_Jul_28_2026_01_09_28_PM_v7owuv.webp"
+                  alt="A moment that stays"
+                  className="w-full aspect-[4/5] object-cover"
+                  loading="lazy"
+                />
+                <figcaption
+                  className="cover-line font-display mt-4"
+                  style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
+                >
+                  Pl. 01 — A moment that stays
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
           {/* Secondary images — Pl. 02 */}
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-14">
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-20 md:mt-32">
             {/* Square — right middle */}
-            <div className="col-span-6 md:col-span-4 md:col-start-6 md:mt-0 self-start">
+            <div className="col-span-8 col-start-5 md:col-span-3 md:col-start-9 md:mt-0 self-start">
               <figure>
                 <img
                   src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232503/SaveClip.App_657715536_18178895965380706_4306185084163071359_n_w4pv9w.jpg"
                   alt="A held breath, captured"
                   className="w-full aspect-square object-cover"
+                  loading="lazy"
                 />
                 <figcaption
-                  className="cover-line font-display mt-3"
-                  style={{ color: "var(--everest)" }}
+                  className="cover-line font-display mt-4"
+                  style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
                 >
                   Pl. 02 — A held breath
                 </figcaption>
               </figure>
             </div>
           </div>
+
 
           {/* Body paragraph after Pl. 02 */}
           <div className="mt-10 max-w-[680px] mx-auto text-center">
