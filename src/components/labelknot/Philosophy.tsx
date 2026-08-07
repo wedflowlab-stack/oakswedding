@@ -183,25 +183,46 @@ export function Philosophy() {
             </p>
           </div>
 
-          {/* Secondary images — Pl. 03 */}
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-14">
-            {/* Portrait — right end */}
-            <div className="col-span-6 md:col-span-3 md:mt-0 self-start">
+          {/* Secondary images — Pl. 03 (offset portrait) */}
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-20 md:mt-32">
+            {/* Portrait — offset left */}
+            <div className="col-span-8 md:col-span-4 md:col-start-2 md:mt-0 self-start">
               <figure>
                 <img
                   src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232497/SaveClip.App_642604422_18437630464112437_3954472121064538389_n_fuwdaq.jpg"
                   alt="Light, draped"
                   className="w-full aspect-[3/4] object-cover"
+                  loading="lazy"
                 />
                 <figcaption
-                  className="cover-line font-display mt-3"
-                  style={{ color: "var(--everest)" }}
+                  className="cover-line font-display mt-4"
+                  style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
                 >
                   Pl. 03 — Light, draped
                 </figcaption>
               </figure>
             </div>
           </div>
+
+          {/* Cinematic wide — Pl. 04, centered */}
+          <div className="w-full mt-20 md:mt-32">
+            <figure className="mx-auto w-full md:w-[86%]">
+              <img
+                src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785227998/ChatGPT_Image_Jul_28_2026_02_08_23_PM_w6n0il.webp"
+                alt="What remains, after"
+                className="w-full aspect-[16/9] object-cover"
+                loading="lazy"
+              />
+              <figcaption
+                className="cover-line font-display mt-4 text-center"
+                style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
+              >
+                Pl. 04 — What remains, after
+              </figcaption>
+            </figure>
+          </div>
+
+
 
           {/* Urgency seed block */}
           <div className="mt-10 md:mt-14 mx-auto max-w-xl">
