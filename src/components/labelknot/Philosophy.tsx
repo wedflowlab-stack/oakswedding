@@ -124,9 +124,9 @@ export function Philosophy() {
           </div>
 
           {/* Hero plate — Pl. 01, large, left-aligned */}
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-16 md:mt-28">
-            <div className="col-span-12 md:col-span-7 md:col-start-1 self-start">
-              <figure>
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-14 md:mt-20">
+            <div className="col-span-11 md:col-span-6 lg:col-span-5 md:col-start-1 self-start">
+              <figure className="max-w-[520px] md:max-w-none">
                 <img
                   src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226101/ChatGPT_Image_Jul_28_2026_01_09_28_PM_v7owuv.webp"
                   alt="A moment that stays"
@@ -144,7 +144,7 @@ export function Philosophy() {
           </div>
 
           {/* Secondary images — Pl. 02 */}
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-20 md:mt-32">
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-16">
             {/* Square — right middle */}
             <div className="col-span-8 col-start-5 md:col-span-3 md:col-start-9 md:mt-0 self-start">
               <figure>
@@ -166,7 +166,7 @@ export function Philosophy() {
 
 
           {/* Body paragraph after Pl. 02 */}
-          <div className="mt-16 md:mt-24 max-w-[680px] mx-auto text-center">
+          <div className="mt-14 md:mt-20 max-w-[680px] mx-auto text-center">
             <p
               className="font-display"
               style={{
@@ -184,7 +184,7 @@ export function Philosophy() {
           </div>
 
           {/* Secondary images — Pl. 03 (offset portrait) */}
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-20 md:mt-32">
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-16">
             {/* Portrait — offset left */}
             <div className="col-span-8 md:col-span-4 md:col-start-2 md:mt-0 self-start">
               <figure>
@@ -205,8 +205,8 @@ export function Philosophy() {
           </div>
 
           {/* Cinematic wide — Pl. 04, centered */}
-          <div className="w-full mt-20 md:mt-32">
-            <figure className="mx-auto w-full md:w-[86%]">
+          <div className="w-full mt-10 md:mt-16">
+            <figure className="mx-auto w-full px-3 md:px-0 md:w-[66%] lg:w-[58%]">
               <img
                 src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785227998/ChatGPT_Image_Jul_28_2026_02_08_23_PM_w6n0il.webp"
                 alt="What remains, after"
