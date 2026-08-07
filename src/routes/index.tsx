@@ -6,6 +6,7 @@ import { Gallery } from "@/components/labelknot/Gallery";
 import { Reviews } from "@/components/labelknot/Reviews";
 
 import { Awards } from "@/components/labelknot/Awards";
+import { AnatomyOfAMemory } from "@/components/anatomy/AnatomyOfAMemory";
 import { Interlude } from "@/components/labelknot/Interlude";
 import { Founder } from "@/components/labelknot/Founder";
 
@@ -53,6 +54,7 @@ function Index() {
       <Gallery />
       <Reviews />
       <Awards />
+      <AnatomyOfAMemory />
       <Interlude />
       <Founder />
       <WhyLabelKnot />
