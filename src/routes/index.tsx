@@ -54,7 +54,6 @@ function Index() {
       <Reviews />
       <Awards />
       <AnatomyOfAMemory />
-      <Interlude />
       <Founder />
       <WhyLabelKnot />
       <InstagramFooter />
