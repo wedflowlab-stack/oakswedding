@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-import cameraLandscape from "@/assets/camera-front-01.png";
-import cameraVertical from "@/assets/camera-vertical-wide.png";
-import sketchPavilion from "@/assets/sketch-pavilion.png";
-import sketchInterior from "@/assets/sketch-interior.png";
+import cameraLandscapeAsset from "@/assets/camera-front-01.png.asset.json";
+import cameraVerticalAsset from "@/assets/camera-vertical-wide.png.asset.json";
+import sketchPavilionAsset from "@/assets/sketch-pavilion.png.asset.json";
+import sketchInteriorAsset from "@/assets/sketch-interior.png.asset.json";
+
+const cameraLandscape = cameraLandscapeAsset.url;
+const cameraVertical = cameraVerticalAsset.url;
+const sketchPavilion = sketchPavilionAsset.url;
+const sketchInterior = sketchInteriorAsset.url;
 
 
 const YT_ONE = "r9XBRK3OGVM";
