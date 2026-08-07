@@ -123,19 +123,40 @@ export function Philosophy() {
             </div>
           </div>
 
+          {/* Hero plate — Pl. 01, large, left-aligned */}
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-16 md:mt-28">
+            <div className="col-span-12 md:col-span-7 md:col-start-1 self-start">
+              <figure>
+                <img
+                  src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785226101/ChatGPT_Image_Jul_28_2026_01_09_28_PM_v7owuv.webp"
+                  alt="A moment that stays"
+                  className="w-full aspect-[4/5] object-cover"
+                  loading="lazy"
+                />
+                <figcaption
+                  className="cover-line font-display mt-4"
+                  style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
+                >
+                  Pl. 01 — A moment that stays
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
           {/* Secondary images — Pl. 02 */}
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-14">
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-20 md:mt-32">
             {/* Square — right middle */}
-            <div className="col-span-6 md:col-span-4 md:col-start-6 md:mt-0 self-start">
+            <div className="col-span-8 col-start-5 md:col-span-3 md:col-start-9 md:mt-0 self-start">
               <figure>
                 <img
                   src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232503/SaveClip.App_657715536_18178895965380706_4306185084163071359_n_w4pv9w.jpg"
                   alt="A held breath, captured"
                   className="w-full aspect-square object-cover"
+                  loading="lazy"
                 />
                 <figcaption
-                  className="cover-line font-display mt-3"
-                  style={{ color: "var(--everest)" }}
+                  className="cover-line font-display mt-4"
+                  style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
                 >
                   Pl. 02 — A held breath
                 </figcaption>
@@ -143,8 +164,9 @@ export function Philosophy() {
             </div>
           </div>
 
+
           {/* Body paragraph after Pl. 02 */}
-          <div className="mt-10 max-w-[680px] mx-auto text-center">
+          <div className="mt-16 md:mt-24 max-w-[680px] mx-auto text-center">
             <p
               className="font-display"
               style={{
@@ -161,19 +183,20 @@ export function Philosophy() {
             </p>
           </div>
 
-          {/* Secondary images — Pl. 03 */}
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-14">
-            {/* Portrait — right end */}
-            <div className="col-span-6 md:col-span-3 md:mt-0 self-start">
+          {/* Secondary images — Pl. 03 (offset portrait) */}
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-20 md:mt-32">
+            {/* Portrait — offset left */}
+            <div className="col-span-8 md:col-span-4 md:col-start-2 md:mt-0 self-start">
               <figure>
                 <img
                   src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232497/SaveClip.App_642604422_18437630464112437_3954472121064538389_n_fuwdaq.jpg"
                   alt="Light, draped"
                   className="w-full aspect-[3/4] object-cover"
+                  loading="lazy"
                 />
                 <figcaption
-                  className="cover-line font-display mt-3"
-                  style={{ color: "var(--everest)" }}
+                  className="cover-line font-display mt-4"
+                  style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
                 >
                   Pl. 03 — Light, draped
                 </figcaption>
@@ -181,8 +204,28 @@ export function Philosophy() {
             </div>
           </div>
 
+          {/* Cinematic wide — Pl. 04, centered */}
+          <div className="w-full mt-20 md:mt-32">
+            <figure className="mx-auto w-full md:w-[86%]">
+              <img
+                src="https://res.cloudinary.com/rqyl0ifl/image/upload/v1785227998/ChatGPT_Image_Jul_28_2026_02_08_23_PM_w6n0il.webp"
+                alt="What remains, after"
+                className="w-full aspect-[16/9] object-cover"
+                loading="lazy"
+              />
+              <figcaption
+                className="cover-line font-display mt-4 text-center"
+                style={{ color: "var(--everest)", letterSpacing: "0.28em", opacity: 0.7 }}
+              >
+                Pl. 04 — What remains, after
+              </figcaption>
+            </figure>
+          </div>
+
+
+
           {/* Urgency seed block */}
-          <div className="mt-10 md:mt-14 mx-auto max-w-xl">
+          <div className="mt-20 md:mt-28 mx-auto max-w-xl">
             {/* Top rule — sand */}
             <div
               className="rule-thin mb-10 mx-auto"
