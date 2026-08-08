@@ -288,10 +288,18 @@ const VERTICAL_FILM_SRC =
   "https://res.cloudinary.com/dznfeewmc/video/upload/v1785993792/SaveClip.App_AQP3ugCLbddoq0bf-DFW0qT8vM8h3_LCem7bHSsjehhQFOrtriXIxHY7wTOipOdXYn_P-jjoJmHYqscW1wNndbj509tS4c6sfld1sgk_h5mkti.mp4";
 
 /** Native looping video that fills the camera LCD edge-to-edge. */
-function NativeFilm({ src, title }: { src: string; title: string }) {
+function NativeFilm({
+  src,
+  title,
+  videoRef,
+}: {
+  src: string;
+  title: string;
+  videoRef?: React.MutableRefObject<HTMLVideoElement | null>;
+}) {
   const video = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const [touched, setTouched] = useState(false);
 
   const toggle = () => {
