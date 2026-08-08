@@ -53,8 +53,8 @@ function Index() {
       <Gallery />
       <Reviews />
       <Awards />
-      <AnatomyOfAMemory />
       <Founder />
+      <AnatomyOfAMemory />
       <WhyLabelKnot />
       <InstagramFooter />
     </main>

@@ -12,7 +12,7 @@ const sketchInterior = sketchInteriorAsset.url;
 
 
 const YT_ONE = "r9XBRK3OGVM";
-const YT_THREE = "r9XBRK3OGVM";
+const YT_THREE = "DVbTEWoJ3cU";
 
 const STILLS = [
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232495/SaveClip.App_743975215_18460390114112437_838627506860467206_n_yxpd6w.jpg",
@@ -79,17 +79,19 @@ function LazyFilm({
   title,
   cover,
   controls,
+  frameRef,
 }: {
   id: string;
   title: string;
   cover?: boolean;
   controls?: boolean;
+  frameRef?: React.MutableRefObject<HTMLIFrameElement | null>;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useRef<HTMLIFrameElement>(null);
   const [load, setLoad] = useState(false);
   const [playing, setPlaying] = useState(true);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [touched, setTouched] = useState(false);
@@ -152,9 +154,9 @@ function LazyFilm({
   const pct = duration ? Math.min(100, (time / duration) * 100) : 0;
 
   const src =
-    `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}` +
+    `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=0&loop=1&playlist=${id}` +
     `&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3` +
-    (controls ? "&enablejsapi=1" : "");
+    `&cc_load_policy=0&cc=0&hl=en&enablejsapi=1`;
 
   return (
     <div
@@ -169,7 +171,10 @@ function LazyFilm({
     >
       {load && (
         <iframe
-          ref={frame}
+          ref={(el) => {
+            frame.current = el;
+            if (frameRef) frameRef.current = el;
+          }}
           src={src}
           title={title}
           allow="autoplay; encrypted-media; fullscreen"
@@ -283,10 +288,18 @@ const VERTICAL_FILM_SRC =
   "https://res.cloudinary.com/dznfeewmc/video/upload/v1785993792/SaveClip.App_AQP3ugCLbddoq0bf-DFW0qT8vM8h3_LCem7bHSsjehhQFOrtriXIxHY7wTOipOdXYn_P-jjoJmHYqscW1wNndbj509tS4c6sfld1sgk_h5mkti.mp4";
 
 /** Native looping video that fills the camera LCD edge-to-edge. */
-function NativeFilm({ src, title }: { src: string; title: string }) {
+function NativeFilm({
+  src,
+  title,
+  videoRef,
+}: {
+  src: string;
+  title: string;
+  videoRef?: React.MutableRefObject<HTMLVideoElement | null>;
+}) {
   const video = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const [touched, setTouched] = useState(false);
 
   const toggle = () => {
@@ -312,7 +325,10 @@ function NativeFilm({ src, title }: { src: string; title: string }) {
       }`}
     >
       <video
-        ref={video}
+        ref={(el) => {
+          video.current = el;
+          if (videoRef) videoRef.current = el;
+        }}
         src={src}
         title={title}
         loop
@@ -388,8 +404,39 @@ function NativeFilm({ src, title }: { src: string; title: string }) {
 const META = "aom-sans text-[clamp(9px,0.75vw,12px)] uppercase tracking-[0.34em] text-ink/70";
 
 export function AnatomyOfAMemory() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const player1Ref = useRef<HTMLIFrameElement | null>(null);
+  const player2Ref = useRef<HTMLVideoElement | null>(null);
+  const player3Ref = useRef<HTMLIFrameElement | null>(null);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+    const pauseYt = (el: HTMLIFrameElement | null) =>
+      el?.contentWindow?.postMessage(
+        '{"event":"command","func":"pauseVideo","args":""}',
+        "*",
+      );
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry && !entry.isIntersecting) {
+          pauseYt(player1Ref.current);
+          player2Ref.current?.pause();
+          pauseYt(player3Ref.current);
+        }
+      },
+      { threshold: 0.05 },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section aria-labelledby="aom-title" className="aom relative overflow-hidden bg-paper text-ink">
+    <section
+      ref={sectionRef}
+      aria-labelledby="aom-title"
+      className="aom relative overflow-hidden bg-paper text-ink"
+    >
       <div className="aom-grain" aria-hidden="true" />
 
       <div className="relative mx-auto w-full max-w-[1560px] px-6 pt-[clamp(72px,10vw,150px)] md:px-10 lg:px-14">
@@ -447,7 +494,7 @@ export function AnatomyOfAMemory() {
                 className="relative z-10 w-full select-none"
               />
               <div className="absolute left-[8.25%] top-[18.75%] z-20 h-[66.1%] w-[64.75%] overflow-hidden">
-                <LazyFilm id={YT_ONE} title="Film 01 — Kuhuk + Sameer" cover controls />
+                <LazyFilm id={YT_ONE} title="Film 01 — Jahanavi & Daniel" cover controls frameRef={player1Ref} />
 
               </div>
             </div>
@@ -458,9 +505,10 @@ export function AnatomyOfAMemory() {
             <div className="border-t border-ink/15 pt-4">
               <div className="grid gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-baseline">
                 <span className={META}>01 / 03</span>
-                <span className={`${META} sm:text-center`}>Kuhuk + Sameer</span>
-                <span className={META}>Kesarbagh Palace</span>
+                <span className={`${META} sm:text-center`}>Jahanavi &amp; Daniel</span>
+                <span className={META}>Taj Bekal Resort</span>
               </div>
+              <p className={`${META} mt-4`}>A bride adorned in tradition</p>
               <p className={`${META} mt-4 text-ink/45`}>Recorded in motion</p>
             </div>
           </Reveal>
@@ -530,7 +578,7 @@ export function AnatomyOfAMemory() {
                 className="relative z-10 w-full select-none"
               />
               <div className="absolute left-[23%] top-[8.6%] z-20 h-[66.4%] w-[52.2%]">
-                <NativeFilm src={VERTICAL_FILM_SRC} title="Film 02 — what remains" />
+                <NativeFilm src={VERTICAL_FILM_SRC} title="Film 02 — what remains" videoRef={player2Ref} />
               </div>
             </div>
 
@@ -570,7 +618,7 @@ export function AnatomyOfAMemory() {
 
           <Reveal className="col-span-12 lg:col-start-4 lg:col-span-9" delay={100}>
             <div className="relative ml-auto aspect-video w-[92vw] max-w-none translate-x-[3vw] sm:w-[88vw] lg:w-full lg:translate-x-0">
-              <LazyFilm id={YT_THREE} title="Film 03 — before it disappears" />
+              <LazyFilm id={YT_THREE} title="Film 03 — before it disappears" frameRef={player3Ref} />
               <span
                 aria-hidden="true"
                 className="aom-serif pointer-events-none absolute left-[2%] top-1/2 z-10 -translate-y-1/2 text-[clamp(120px,20vw,340px)] leading-none text-paper opacity-[0.17]"
