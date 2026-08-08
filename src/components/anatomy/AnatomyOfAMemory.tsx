@@ -505,9 +505,10 @@ export function AnatomyOfAMemory() {
             <div className="border-t border-ink/15 pt-4">
               <div className="grid gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-baseline">
                 <span className={META}>01 / 03</span>
-                <span className={`${META} sm:text-center`}>Kuhuk + Sameer</span>
-                <span className={META}>Kesarbagh Palace</span>
+                <span className={`${META} sm:text-center`}>Jahanavi &amp; Daniel</span>
+                <span className={META}>Taj Bekal Resort</span>
               </div>
+              <p className={`${META} mt-4`}>A bride adorned in tradition</p>
               <p className={`${META} mt-4 text-ink/45`}>Recorded in motion</p>
             </div>
           </Reveal>
