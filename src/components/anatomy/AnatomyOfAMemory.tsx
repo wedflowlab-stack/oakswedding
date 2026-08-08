@@ -171,7 +171,10 @@ function LazyFilm({
     >
       {load && (
         <iframe
-          ref={frame}
+          ref={(el) => {
+            frame.current = el;
+            if (frameRef) frameRef.current = el;
+          }}
           src={src}
           title={title}
           allow="autoplay; encrypted-media; fullscreen"
