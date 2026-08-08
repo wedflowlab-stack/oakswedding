@@ -494,7 +494,7 @@ export function AnatomyOfAMemory() {
                 className="relative z-10 w-full select-none"
               />
               <div className="absolute left-[8.25%] top-[18.75%] z-20 h-[66.1%] w-[64.75%] overflow-hidden">
-                <LazyFilm id={YT_ONE} title="Film 01 — Kuhuk + Sameer" cover controls />
+                <LazyFilm id={YT_ONE} title="Film 01 — Jahanavi & Daniel" cover controls frameRef={player1Ref} />
 
               </div>
             </div>
