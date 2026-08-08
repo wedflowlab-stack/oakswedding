@@ -329,6 +329,7 @@ function NativeFilm({
           video.current = el;
           if (videoRef) videoRef.current = el;
         }}
+        src={src}
         title={title}
         loop
         muted={muted}
