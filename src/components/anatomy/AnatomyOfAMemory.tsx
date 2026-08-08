@@ -404,8 +404,39 @@ function NativeFilm({
 const META = "aom-sans text-[clamp(9px,0.75vw,12px)] uppercase tracking-[0.34em] text-ink/70";
 
 export function AnatomyOfAMemory() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const player1Ref = useRef<HTMLIFrameElement | null>(null);
+  const player2Ref = useRef<HTMLVideoElement | null>(null);
+  const player3Ref = useRef<HTMLIFrameElement | null>(null);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+    const pauseYt = (el: HTMLIFrameElement | null) =>
+      el?.contentWindow?.postMessage(
+        '{"event":"command","func":"pauseVideo","args":""}',
+        "*",
+      );
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry && !entry.isIntersecting) {
+          pauseYt(player1Ref.current);
+          player2Ref.current?.pause();
+          pauseYt(player3Ref.current);
+        }
+      },
+      { threshold: 0.05 },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section aria-labelledby="aom-title" className="aom relative overflow-hidden bg-paper text-ink">
+    <section
+      ref={sectionRef}
+      aria-labelledby="aom-title"
+      className="aom relative overflow-hidden bg-paper text-ink"
+    >
       <div className="aom-grain" aria-hidden="true" />
 
       <div className="relative mx-auto w-full max-w-[1560px] px-6 pt-[clamp(72px,10vw,150px)] md:px-10 lg:px-14">
