@@ -154,9 +154,9 @@ function LazyFilm({
   const pct = duration ? Math.min(100, (time / duration) * 100) : 0;
 
   const src =
-    `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}` +
+    `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=0&loop=1&playlist=${id}` +
     `&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3` +
-    (controls ? "&enablejsapi=1" : "");
+    `&cc_load_policy=0&cc=0&hl=en&enablejsapi=1`;
 
   return (
     <div
