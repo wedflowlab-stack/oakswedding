@@ -12,7 +12,7 @@ const sketchInterior = sketchInteriorAsset.url;
 
 
 const YT_ONE = "r9XBRK3OGVM";
-const YT_THREE = "r9XBRK3OGVM";
+const YT_THREE = "DVbTEWoJ3cU";
 
 const STILLS = [
   "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232495/SaveClip.App_743975215_18460390114112437_838627506860467206_n_yxpd6w.jpg",
@@ -79,17 +79,19 @@ function LazyFilm({
   title,
   cover,
   controls,
+  frameRef,
 }: {
   id: string;
   title: string;
   cover?: boolean;
   controls?: boolean;
+  frameRef?: React.MutableRefObject<HTMLIFrameElement | null>;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useRef<HTMLIFrameElement>(null);
   const [load, setLoad] = useState(false);
   const [playing, setPlaying] = useState(true);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [touched, setTouched] = useState(false);
