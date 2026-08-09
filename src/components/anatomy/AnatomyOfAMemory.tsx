@@ -116,6 +116,27 @@ function LazyFilm({
     return () => io.disconnect();
   }, []);
 
+  // Pause (never auto-resume) once the frame leaves the viewport.
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || !load) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry && !entry.isIntersecting) {
+          frame.current?.contentWindow?.postMessage(
+            JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
+            "*",
+          );
+          setPlaying(false);
+        }
+      },
+      { threshold: 0.2 },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, [load]);
+
+
   const send = (func: string, args: unknown[] = []) => {
     frame.current?.contentWindow?.postMessage(
       JSON.stringify({ event: "command", func, args }),
