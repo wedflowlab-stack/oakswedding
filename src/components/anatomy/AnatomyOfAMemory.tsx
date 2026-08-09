@@ -89,12 +89,16 @@ function LazyFilm({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useRef<HTMLIFrameElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const hideTimer = useRef<number | null>(null);
   const [load, setLoad] = useState(false);
   const [playing, setPlaying] = useState(true);
   const [muted, setMuted] = useState(false);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [touched, setTouched] = useState(false);
+  const [uiVisible, setUiVisible] = useState(true);
+  const [scrubbing, setScrubbing] = useState(false);
+  const [barHot, setBarHot] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
@@ -131,7 +135,7 @@ function LazyFilm({
         };
         const info = msg.info;
         if (!info) return;
-        if (typeof info.currentTime === "number") setTime(info.currentTime);
+        if (typeof info.currentTime === "number" && !scrubbing) setTime(info.currentTime);
         if (typeof info.duration === "number" && info.duration > 0) setDuration(info.duration);
         if (typeof info.playerState === "number") setPlaying(info.playerState === 1);
       } catch {
@@ -144,30 +148,88 @@ function LazyFilm({
         JSON.stringify({ event: "listening", id: title }),
         "*",
       );
-    }, 1000);
+    }, 500);
     return () => {
       window.removeEventListener("message", onMessage);
       window.clearInterval(hello);
     };
-  }, [controls, load, title]);
+  }, [controls, load, title, scrubbing]);
+
+  // Always visible when paused; auto-fade 2s after activity while playing.
+  const ping = () => {
+    setUiVisible(true);
+    if (hideTimer.current) window.clearTimeout(hideTimer.current);
+    hideTimer.current = window.setTimeout(() => setUiVisible(false), 2000);
+  };
+
+  useEffect(() => {
+    if (!playing) {
+      if (hideTimer.current) window.clearTimeout(hideTimer.current);
+      setUiVisible(true);
+      return;
+    }
+    ping();
+    return () => {
+      if (hideTimer.current) window.clearTimeout(hideTimer.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playing]);
+
+  const toggle = () => {
+    if (playing) {
+      send("pauseVideo");
+      setPlaying(false);
+    } else {
+      send("playVideo");
+      setPlaying(true);
+      ping();
+    }
+  };
 
   const pct = duration ? Math.min(100, (time / duration) * 100) : 0;
+
+  const seekFromClientX = (clientX: number) => {
+    const box = barRef.current?.getBoundingClientRect();
+    if (!box || !box.width || !duration) return;
+    const r = Math.min(1, Math.max(0, (clientX - box.left) / box.width));
+    setTime(r * duration);
+    send("seekTo", [r * duration, true]);
+  };
+
+  useEffect(() => {
+    if (!scrubbing) return;
+    const move = (e: MouseEvent) => seekFromClientX(e.clientX);
+    const touch = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (t) seekFromClientX(t.clientX);
+    };
+    const end = () => setScrubbing(false);
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", end);
+    window.addEventListener("touchmove", touch, { passive: true });
+    window.addEventListener("touchend", end);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseup", end);
+      window.removeEventListener("touchmove", touch);
+      window.removeEventListener("touchend", end);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrubbing, duration]);
 
   const src =
     `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=0&loop=1&playlist=${id}` +
     `&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3` +
     `&cc_load_policy=0&cc=0&hl=en&enablejsapi=1`;
 
+  const thumbSize = barHot || scrubbing ? 12 : 8;
+
   return (
     <div
       ref={ref}
-      onTouchStart={() => {
-        setTouched(true);
-        window.setTimeout(() => setTouched(false), 3500);
-      }}
-      className={`aom-film group absolute inset-0 overflow-hidden bg-[oklch(0.12_0.005_60)] ${
-        touched ? "is-touched" : ""
-      }`}
+      onMouseMove={() => (playing ? ping() : setUiVisible(true))}
+      onTouchStart={() => (playing ? ping() : setUiVisible(true))}
+      className="aom-film group absolute inset-0 overflow-hidden bg-[oklch(0.12_0.005_60)]"
     >
       {load && (
         <iframe
@@ -189,98 +251,149 @@ function LazyFilm({
       )}
 
       {controls && load && (
-        <div className="aom-controls absolute inset-x-0 bottom-0 z-30 px-[3.5%] pb-[3%]">
-          <div
-            role="progressbar"
-            aria-label="Film progress"
-            aria-valuenow={Math.round(pct)}
-            tabIndex={0}
-            onClick={(e) => {
-              const box = e.currentTarget.getBoundingClientRect();
-              const r = (e.clientX - box.left) / box.width;
-              if (duration) send("seekTo", [r * duration, true]);
+        <>
+          {/* centre play / pause */}
+          <button
+            type="button"
+            aria-label={playing ? "Pause film" : "Play film"}
+            onClick={toggle}
+            style={{
+              zIndex: 50,
+              pointerEvents: "auto",
+              opacity: uiVisible || !playing ? 1 : 0,
+              transition: "opacity 300ms ease",
             }}
-            className="aom-bar"
+            className="absolute left-1/2 top-1/2 flex h-[24%] w-[24%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[oklch(0_0_0_/_0.35)] backdrop-blur-[2px]"
           >
-            <span className="aom-bar-fill" style={{ width: `${pct}%` }} />
-          </div>
-
-          <div className="mt-[2.5%] flex items-center gap-[4%]">
-            <button
-              type="button"
-              aria-label={playing ? "Pause film" : "Play film"}
-              onClick={() => {
-                send(playing ? "pauseVideo" : "playVideo");
-                setPlaying(!playing);
-              }}
-              className="aom-ctrl"
-            >
+            <svg viewBox="0 0 12 12" aria-hidden="true" className="h-[38%] w-[38%] fill-[oklch(1_0_0_/_0.92)]">
               {playing ? (
-                <svg viewBox="0 0 12 12" aria-hidden="true">
+                <>
                   <rect x="2.5" y="1.5" width="2.4" height="9" />
                   <rect x="7.1" y="1.5" width="2.4" height="9" />
-                </svg>
+                </>
               ) : (
-                <svg viewBox="0 0 12 12" aria-hidden="true">
-                  <path d="M3 1.5 L10.5 6 L3 10.5 Z" />
-                </svg>
+                <path d="M3 1.5 L10.5 6 L3 10.5 Z" />
               )}
-            </button>
+            </svg>
+          </button>
 
-            <button
-              type="button"
-              aria-label={muted ? "Unmute film" : "Mute film"}
-              onClick={() => {
-                if (muted) {
-                  send("unMute");
-                  send("setVolume", [70]);
-                } else {
-                  send("mute");
-                }
-                setMuted(!muted);
+          <div
+            className="absolute inset-x-0 bottom-0 px-[3.5%] pb-[3%]"
+            style={{
+              zIndex: 50,
+              opacity: uiVisible || !playing ? 1 : 0,
+              transition: "opacity 300ms ease",
+            }}
+          >
+            <div
+              ref={barRef}
+              role="progressbar"
+              aria-label="Film progress"
+              aria-valuenow={Math.round(pct)}
+              tabIndex={0}
+              onMouseEnter={() => setBarHot(true)}
+              onMouseLeave={() => setBarHot(false)}
+              onMouseDown={(e) => {
+                setScrubbing(true);
+                seekFromClientX(e.clientX);
               }}
-              className="aom-ctrl"
-            >
-              <svg viewBox="0 0 14 12" aria-hidden="true">
-                <path d="M1 4.4 H3.3 L6.2 1.8 V10.2 L3.3 7.6 H1 Z" />
-                {muted ? (
-                  <path d="M8.6 4.2 L12 7.8 M12 4.2 L8.6 7.8" stroke="currentColor" strokeWidth="1.1" fill="none" />
-                ) : (
-                  <path
-                    d="M8.8 3.8 A3.4 3.4 0 0 1 8.8 8.2 M10.6 2.4 A5.4 5.4 0 0 1 10.6 9.6"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    fill="none"
-                  />
-                )}
-              </svg>
-            </button>
-
-            <span className="aom-time">
-              {fmt(time)} <span className="opacity-50">/ {fmt(duration)}</span>
-            </span>
-
-            <button
-              type="button"
-              aria-label="Fullscreen"
-              onClick={() => {
-                const el = ref.current;
-                if (!el) return;
-                if (document.fullscreenElement) void document.exitFullscreen();
-                else void el.requestFullscreen?.();
+              onTouchStart={(e) => {
+                setScrubbing(true);
+                const t = e.touches[0];
+                if (t) seekFromClientX(t.clientX);
               }}
-              className="aom-ctrl ml-auto"
+              style={{
+                position: "relative",
+                cursor: "pointer",
+                height: barHot || scrubbing ? 8 : 4,
+                background: "rgba(255,255,255,0.2)",
+                transition: "height 0.15s ease",
+              }}
             >
-              <svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.2">
-                <path d="M1 4 V1 H4 M8 1 H11 V4 M11 8 V11 H8 M4 11 H1 V8" />
-              </svg>
-            </button>
+              <span
+                style={{
+                  position: "absolute",
+                  insetBlock: 0,
+                  left: 0,
+                  width: `${pct}%`,
+                  background: "rgba(255,255,255,0.9)",
+                }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: `${pct}%`,
+                  width: thumbSize,
+                  height: thumbSize,
+                  marginLeft: -thumbSize / 2,
+                  marginTop: -thumbSize / 2,
+                  borderRadius: "9999px",
+                  background: "#fff",
+                  transition: "width 0.15s ease, height 0.15s ease",
+                  pointerEvents: "none",
+                }}
+              />
+            </div>
+
+            <div className="mt-[2.5%] flex items-center gap-[4%]">
+              <button
+                type="button"
+                aria-label={muted ? "Unmute film" : "Mute film"}
+                onClick={() => {
+                  if (muted) {
+                    send("unMute");
+                    send("setVolume", [70]);
+                  } else {
+                    send("mute");
+                  }
+                  setMuted(!muted);
+                }}
+                className="aom-ctrl"
+                style={{ opacity: 1 }}
+              >
+                <svg viewBox="0 0 14 12" aria-hidden="true">
+                  <path d="M1 4.4 H3.3 L6.2 1.8 V10.2 L3.3 7.6 H1 Z" />
+                  {muted ? (
+                    <path d="M8.6 4.2 L12 7.8 M12 4.2 L8.6 7.8" stroke="currentColor" strokeWidth="1.1" fill="none" />
+                  ) : (
+                    <path
+                      d="M8.8 3.8 A3.4 3.4 0 0 1 8.8 8.2 M10.6 2.4 A5.4 5.4 0 0 1 10.6 9.6"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                  )}
+                </svg>
+              </button>
+
+              <span className="aom-time">
+                {fmt(time)} <span className="opacity-50">/ {fmt(duration)}</span>
+              </span>
+
+              <button
+                type="button"
+                aria-label="Fullscreen"
+                onClick={() => {
+                  const el = ref.current;
+                  if (!el) return;
+                  if (document.fullscreenElement) void document.exitFullscreen();
+                  else void el.requestFullscreen?.();
+                }}
+                className="aom-ctrl ml-auto"
+              >
+                <svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.2">
+                  <path d="M1 4 V1 H4 M8 1 H11 V4 M11 8 V11 H8 M4 11 H1 V8" />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
 }
+
 
 
 
