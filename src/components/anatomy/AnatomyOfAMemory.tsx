@@ -787,7 +787,7 @@ export function AnatomyOfAMemory() {
 
           <Reveal className="col-span-12 lg:col-start-4 lg:col-span-9" delay={100}>
             <div className="relative ml-auto aspect-video w-[92vw] max-w-none translate-x-[3vw] sm:w-[88vw] lg:w-full lg:translate-x-0">
-              <LazyFilm id={YT_THREE} title="Film 03 — before it disappears" frameRef={player3Ref} />
+              <LazyFilm id={YT_THREE} title="Film 03 — before it disappears" autoPlayInView frameRef={player3Ref} />
               <span
                 aria-hidden="true"
                 className="aom-serif pointer-events-none absolute left-[2%] top-1/2 z-10 -translate-y-1/2 text-[clamp(120px,20vw,340px)] leading-none text-paper opacity-[0.17]"
