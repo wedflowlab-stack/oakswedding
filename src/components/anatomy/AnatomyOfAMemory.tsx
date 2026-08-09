@@ -79,12 +79,14 @@ function LazyFilm({
   title,
   cover,
   controls,
+  autoPlayInView,
   frameRef,
 }: {
   id: string;
   title: string;
   cover?: boolean;
   controls?: boolean;
+  autoPlayInView?: boolean;
   frameRef?: React.MutableRefObject<HTMLIFrameElement | null>;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -116,25 +118,36 @@ function LazyFilm({
     return () => io.disconnect();
   }, []);
 
-  // Pause (never auto-resume) once the frame leaves the viewport.
+  // Pause once the frame leaves the viewport; optionally autoplay (with sound) on entry.
   useEffect(() => {
     const node = ref.current;
     if (!node || !load) return;
+    const cmd = (func: string, args: unknown[] = []) =>
+      frame.current?.contentWindow?.postMessage(
+        JSON.stringify({ event: "command", func, args }),
+        "*",
+      );
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry && !entry.isIntersecting) {
-          frame.current?.contentWindow?.postMessage(
-            JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
-            "*",
-          );
+        if (!entry) return;
+        if (entry.isIntersecting) {
+          if (!autoPlayInView) return;
+          cmd("unMute");
+          cmd("setVolume", [100]);
+          cmd("playVideo");
+          setMuted(false);
+          setPlaying(true);
+        } else {
+          cmd("pauseVideo");
           setPlaying(false);
         }
       },
-      { threshold: 0.2 },
+      { threshold: autoPlayInView ? 0.4 : 0.2 },
     );
     io.observe(node);
     return () => io.disconnect();
-  }, [load]);
+  }, [load, autoPlayInView]);
+
 
 
   const send = (func: string, args: unknown[] = []) => {
