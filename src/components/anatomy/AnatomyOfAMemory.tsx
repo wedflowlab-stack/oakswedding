@@ -448,6 +448,28 @@ function NativeFilm({
     }
   };
 
+  // Autoplay with sound when 40% visible; pause when it leaves the viewport.
+  useEffect(() => {
+    const el = video.current;
+    if (!el) return;
+    el.volume = 1;
+    el.muted = false;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+        if (entry.isIntersecting) {
+          el.volume = 1;
+          void el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div
       onTouchStart={() => {
@@ -466,13 +488,13 @@ function NativeFilm({
         src={src}
         title={title}
         loop
-        muted={muted}
         playsInline
-        preload="metadata"
+        preload="auto"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         className="absolute inset-0 h-full w-full object-cover"
       />
+
 
       {!playing && (
         <button
