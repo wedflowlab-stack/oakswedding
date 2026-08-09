@@ -79,12 +79,14 @@ function LazyFilm({
   title,
   cover,
   controls,
+  autoPlayInView,
   frameRef,
 }: {
   id: string;
   title: string;
   cover?: boolean;
   controls?: boolean;
+  autoPlayInView?: boolean;
   frameRef?: React.MutableRefObject<HTMLIFrameElement | null>;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -116,25 +118,36 @@ function LazyFilm({
     return () => io.disconnect();
   }, []);
 
-  // Pause (never auto-resume) once the frame leaves the viewport.
+  // Pause once the frame leaves the viewport; optionally autoplay (with sound) on entry.
   useEffect(() => {
     const node = ref.current;
     if (!node || !load) return;
+    const cmd = (func: string, args: unknown[] = []) =>
+      frame.current?.contentWindow?.postMessage(
+        JSON.stringify({ event: "command", func, args }),
+        "*",
+      );
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry && !entry.isIntersecting) {
-          frame.current?.contentWindow?.postMessage(
-            JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
-            "*",
-          );
+        if (!entry) return;
+        if (entry.isIntersecting) {
+          if (!autoPlayInView) return;
+          cmd("unMute");
+          cmd("setVolume", [100]);
+          cmd("playVideo");
+          setMuted(false);
+          setPlaying(true);
+        } else {
+          cmd("pauseVideo");
           setPlaying(false);
         }
       },
-      { threshold: 0.2 },
+      { threshold: autoPlayInView ? 0.4 : 0.2 },
     );
     io.observe(node);
     return () => io.disconnect();
-  }, [load]);
+  }, [load, autoPlayInView]);
+
 
 
   const send = (func: string, args: unknown[] = []) => {
@@ -774,7 +787,7 @@ export function AnatomyOfAMemory() {
 
           <Reveal className="col-span-12 lg:col-start-4 lg:col-span-9" delay={100}>
             <div className="relative ml-auto aspect-video w-[92vw] max-w-none translate-x-[3vw] sm:w-[88vw] lg:w-full lg:translate-x-0">
-              <LazyFilm id={YT_THREE} title="Film 03 — before it disappears" frameRef={player3Ref} />
+              <LazyFilm id={YT_THREE} title="Film 03 — before it disappears" autoPlayInView frameRef={player3Ref} />
               <span
                 aria-hidden="true"
                 className="aom-serif pointer-events-none absolute left-[2%] top-1/2 z-10 -translate-y-1/2 text-[clamp(120px,20vw,340px)] leading-none text-paper opacity-[0.17]"
