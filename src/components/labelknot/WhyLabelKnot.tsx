@@ -52,7 +52,7 @@ export function WhyLabelKnot() {
       >
         There are wedding photographs.
         <br />
-        And then there are Fourfold photographs.
+        And then there are Oaks Photographs.
         <br />
         The difference is visible the moment you see one.
       </p>
