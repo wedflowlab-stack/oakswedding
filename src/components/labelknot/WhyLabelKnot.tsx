@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 
-const EVEREST = "#18442A";
+const EVEREST = "#4E0000";
 const MILKY = "#FDFBF0";
 const MUTED_4 = "rgba(253,251,240,0.4)";
 const MUTED_75 = "rgba(253,251,240,0.75)";
@@ -37,7 +37,7 @@ export function WhyLabelKnot() {
           color: MILKY,
         }}
       >
-        Why Four Fold Pictures
+        WHY OAKS WEDDING
       </h2>
 
       {/* Subheading */}
@@ -52,7 +52,7 @@ export function WhyLabelKnot() {
       >
         There are wedding photographs.
         <br />
-        And then there are Fourfold photographs.
+        And then there are Oaks Photographs.
         <br />
         The difference is visible the moment you see one.
       </p>
