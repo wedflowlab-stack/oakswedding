@@ -166,22 +166,47 @@ export function Philosophy() {
 
 
           {/* Body paragraph after Pl. 02 */}
-          <div className="mt-14 md:mt-20 max-w-[680px] mx-auto text-center">
+          <div className="mt-14 md:mt-20 max-w-xl mx-auto text-center">
             <p
               className="font-display"
               style={{
-                fontSize: "20px",
+                fontSize: "clamp(25px, 2.6vw, 35px)",
                 color: "var(--everest)",
-                lineHeight: 1.7,
+                lineHeight: 1.15,
                 textAlign: "center",
+                fontWeight: 500,
               }}
             >
               Your mother, watching you from across the room, understanding something you will only
-              understand yourself when your own child stands where you are standing. The cousin who
-              flew across the world to be in that room. Your father's face — the one he made when he
-              thought no one was looking.
+              understand yourself when your own child stands where you are standing.
+            </p>
+            <p
+              className="font-display"
+              style={{
+                fontSize: "clamp(25px, 2.6vw, 35px)",
+                color: "var(--everest)",
+                lineHeight: 1.15,
+                margin: "8px 0",
+                textAlign: "center",
+                fontWeight: 500,
+              }}
+            >
+              The cousin who flew across the world to be in that room.
+            </p>
+            <p
+              className="font-display"
+              style={{
+                fontSize: "clamp(25px, 2.6vw, 35px)",
+                color: "var(--everest)",
+                lineHeight: 1.15,
+                textAlign: "center",
+                fontWeight: 500,
+              }}
+            >
+              Your father's face — the one he made when he thought no one was looking.
             </p>
           </div>
+
 
           {/* Secondary images — Pl. 03 (offset portrait) */}
           <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-16">
