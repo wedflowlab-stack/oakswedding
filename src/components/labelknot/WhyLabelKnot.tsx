@@ -37,7 +37,7 @@ export function WhyLabelKnot() {
           color: MILKY,
         }}
       >
-        Why Four Fold Pictures
+        WHY OAKS WEDDING
       </h2>
 
       {/* Subheading */}
