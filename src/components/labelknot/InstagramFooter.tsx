@@ -40,7 +40,7 @@ export function InstagramFooter() {
             href="https://www.instagram.com/fourfoldpictures?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             target="_blank"
             rel="noreferrer"
-            className="font-display tracking-[0.32em] text-3xl md:text-5xl uppercase hover:opacity-70 transition-opacity"
+            className="inline-block max-w-full [overflow-wrap:anywhere] font-display tracking-[0.32em] text-3xl md:text-5xl uppercase hover:opacity-70 transition-opacity"
           >
             @fourfoldpictures
           </a>
