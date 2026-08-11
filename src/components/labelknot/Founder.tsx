@@ -9,7 +9,7 @@ const ABOUT_VIDEO =
 const VOGUE_LOGO =
   "https://res.cloudinary.com/drszur4wl/image/upload/v1776868855/VOGUE_2_-Photoroom_e0bxv3.png";
 const WEDDING_SUTRA_LOGO =
-  "https://res.cloudinary.com/drszur4wl/image/upload/v1776868846/Gemini_Generated_Image_21e7g121e7g121e7-Photoroom_j2g4th.png";
+  "https://res.cloudinary.com/pcodbmuo/image/upload/v1786427870/wsip_wpl7dj.webp";
 const HARPERS_LOGO =
   "https://res.cloudinary.com/drszur4wl/image/upload/v1776868843/BAZZAR-Photoroom_w4mhel.png";
 const ELLE_LOGO =
@@ -17,7 +17,7 @@ const ELLE_LOGO =
 const THE_WED_LOGO =
   "https://res.cloudinary.com/drszur4wl/image/upload/v1780561634/THE_WED_LG_fw8ziq.webp";
 const WEZOREE_LOGO =
-  "https://res.cloudinary.com/drszur4wl/image/upload/v1776868854/WEZORE-Photoroom_iptptm.png";
+  "https://res.cloudinary.com/pcodbmuo/image/upload/v1786427870/wexp_nepgxt.webp";
 const TIMES_LOGO =
   "https://res.cloudinary.com/drszur4wl/image/upload/v1776868875/times_of_india-Photoroom_wtd0eu.png";
 
