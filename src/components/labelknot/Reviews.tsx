@@ -25,11 +25,15 @@ const CARDS = [
   },
   {
     name: "SIMRANJMEHTA & ABHIJITPARESHA",
+    year: "2022",
+    image: "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232488/ChatGPT_Image_Jul_28_2026_03_19_07_PM_jzzhvk.webp",
     review:
       "The wedding planning felt enormous at the time. Every decision, every vendor, every number. A year later, I cannot tell you what most of it cost. I can tell you exactly what four fold pictures cost — because it is the only thing I would pay again without a second thought. Everything else from that day is a receipt. This is the only thing that is still real, and I still keep coming back to it.",
   },
   {
     name: "APARAJITA & KARAN",
+    year: "2025",
+    image: "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232503/SaveClip.App_660801966_18444324925112437_3863561727846764138_n_j1vmac.jpg",
     review:
       "My cousins haven't all been in the same place since we were children. Different cities, different lives, different versions of ourselves. That day they wore all theirs — and four fold pictures caught a moment between us that none of us staged, none of us planned, none of us ever noticed happening. When I saw that frame I completely fell apart. Because I knew, without anyone saying it, that we will never all be in the same room like that again.",
   },
