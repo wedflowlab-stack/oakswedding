@@ -10,16 +10,16 @@ const CORNER_BR = "HELD FOR A LIFETIME.";
 
 const CARDS = [
   {
-    name: "REEYAA NAIR & MR KHANJO",
+    name: "ARMAAN & SHILPA",
     year: "2024",
-    image: "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232495/SaveClip.App_743975215_18460390114112437_838627506860467206_n_yxpd6w.jpg",
+    image: "https://res.cloudinary.com/pcodbmuo/image/upload/v1786427165/SaveClip.App_574925951_18180956848350820_5794561172347795615_n_unsj9l.jpg",
     review:
       "We didn't realise how much we needed those photographs until we sat with them three weeks later. Every frame felt like we were back there in that beach — just the two of us, in that light, in that silence between everything happening around us. four fold pictures didn't photograph our wedding. They photographed us. That difference is something I will never be able to fully explain.",
   },
   {
-    name: "PRACHETA & CARL",
+    name: "DIYA | IRESH",
     year: "2025",
-    image: "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232496/SaveClip.App_642535060_18438073714112437_9189815022439365238_n_cgvu8n.jpg",
+    image: "https://res.cloudinary.com/pcodbmuo/image/upload/v1786427166/SaveClip.App_743186131_18460390252112437_2235639283108371467_n_btgq0p.jpg",
     review:
       "There were a hundred people around us that day. But when I look at our photographs now, it feels like there was no one else in the world. Just him looking at me like that. four fold pictures caught something I didn't even know was happening in real time. That is not photography. That is something I don't have a word for yet.",
   },
