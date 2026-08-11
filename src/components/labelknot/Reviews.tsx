@@ -24,14 +24,14 @@ const CARDS = [
       "There were a hundred people around us that day. But when I look at our photographs now, it feels like there was no one else in the world. Just him looking at me like that. four fold pictures caught something I didn't even know was happening in real time. That is not photography. That is something I don't have a word for yet.",
   },
   {
-    name: "SONALI & RONAK",
+    name: "SIMRANJMEHTA & ABHIJITPARESHA",
     year: "2022",
     image: "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232488/ChatGPT_Image_Jul_28_2026_03_19_07_PM_jzzhvk.webp",
     review:
       "The wedding planning felt enormous at the time. Every decision, every vendor, every number. A year later, I cannot tell you what most of it cost. I can tell you exactly what four fold pictures cost — because it is the only thing I would pay again without a second thought. Everything else from that day is a receipt. This is the only thing that is still real, and I still keep coming back to it.",
   },
   {
-    name: "ANU & LOVELY COUSINS",
+    name: "APARAJITA & KARAN",
     year: "2025",
     image: "https://res.cloudinary.com/rqyl0ifl/image/upload/v1785232503/SaveClip.App_660801966_18444324925112437_3863561727846764138_n_j1vmac.jpg",
     review:
