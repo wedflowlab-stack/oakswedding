@@ -95,7 +95,7 @@ function AboutVideo() {
   return (
     <div
       ref={wrapRef}
-      className="relative mx-auto w-[92vw] aspect-[4/3] md:w-[88vw] md:aspect-[16/9] lg:w-[72vw] overflow-hidden"
+      className="relative mx-auto w-full aspect-[4/3] md:w-[88vw] md:aspect-[16/9] lg:w-[72vw] overflow-hidden"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
