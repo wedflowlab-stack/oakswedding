@@ -287,10 +287,10 @@ export function Hero() {
           /* Coded overlays matching the text baked into the mobile image */
           .oaks-masthead-wrap {
             display: flex;
-            padding-top: 3.1rem;
+            padding-top: 4.2rem;
           }
           .oaks-masthead {
-            font-size: 33vw;
+            font-size: 43vw;
             letter-spacing: 0.005em;
             color: rgba(233,224,206,0.97);
           }
@@ -304,9 +304,9 @@ export function Hero() {
           .oaks-top { display: flex; justify-content: space-between; }
           .oaks-menu { display: none; }
           .oaks-title-block { display: flex; margin-bottom: 0.35rem; }
-          .oaks-tender { font-size: 18.8vw; letter-spacing: 0.005em; }
-          .oaks-with { font-size: 11vw; }
-          .oaks-vows { font-size: 20.6vw; letter-spacing: 0.005em; }
+          .oaks-tender { font-size: 23vw; letter-spacing: 0.005em; }
+          .oaks-with { font-size: 14vw; }
+          .oaks-vows { font-size: 25.5vw; letter-spacing: 0.005em; }
           .meta-left, .meta-right { top: 37% !important; }
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
