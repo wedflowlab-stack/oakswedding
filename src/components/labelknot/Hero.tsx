@@ -303,7 +303,8 @@ export function Hero() {
           }
           .oaks-top { display: flex; justify-content: space-between; }
           .oaks-menu { display: none; }
-          .oaks-title-block { display: flex; margin-bottom: 0.35rem; transform: translateY(40px); }
+          .oaks-title-block { display: flex; margin-bottom: 0.35rem; transform: translateY(25px); }
+          .oaks-with-vows { margin-top: -12px; transform: translateX(26px); }
           .oaks-tender { font-size: 21.2vw !important; letter-spacing: 0.005em; }
           .oaks-with { font-size: 11vw !important; }
           .oaks-vows { font-size: 24vw !important; letter-spacing: 0.005em; }
