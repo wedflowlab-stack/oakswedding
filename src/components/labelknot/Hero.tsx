@@ -287,7 +287,7 @@ export function Hero() {
           /* Coded overlays matching the text baked into the mobile image */
           .oaks-masthead-wrap {
             display: flex;
-            padding-top: 6.2rem !important;
+            padding-top: 7.6rem !important;
           }
           .oaks-masthead {
             font-size: 34vw !important;
@@ -303,10 +303,10 @@ export function Hero() {
           }
           .oaks-top { display: flex; justify-content: space-between; }
           .oaks-menu { display: none; }
-          .oaks-title-block { display: flex; margin-bottom: 0.35rem; }
-          .oaks-tender { font-size: 19.8vw !important; letter-spacing: 0.005em; }
-          .oaks-with { font-size: 10vw !important; }
-          .oaks-vows { font-size: 22.4vw !important; letter-spacing: 0.005em; }
+          .oaks-title-block { display: flex; margin-bottom: 0.35rem; transform: translateY(22px); }
+          .oaks-tender { font-size: 21.2vw !important; letter-spacing: 0.005em; }
+          .oaks-with { font-size: 11vw !important; }
+          .oaks-vows { font-size: 24vw !important; letter-spacing: 0.005em; }
           .meta-left, .meta-right { top: 37% !important; }
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
