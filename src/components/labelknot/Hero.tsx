@@ -287,7 +287,7 @@ export function Hero() {
           /* Coded overlays matching the text baked into the mobile image */
           .oaks-masthead-wrap {
             display: flex;
-            padding-top: 7.6rem !important;
+            padding-top: 6.2rem !important;
           }
           .oaks-masthead {
             font-size: 34vw !important;
@@ -303,7 +303,7 @@ export function Hero() {
           }
           .oaks-top { display: flex; justify-content: space-between; }
           .oaks-menu { display: none; }
-          .oaks-title-block { display: flex; margin-bottom: 0.35rem; transform: translateY(22px); }
+          .oaks-title-block { display: flex; margin-bottom: 0.35rem; transform: translateY(40px); }
           .oaks-tender { font-size: 21.2vw !important; letter-spacing: 0.005em; }
           .oaks-with { font-size: 11vw !important; }
           .oaks-vows { font-size: 24vw !important; letter-spacing: 0.005em; }
