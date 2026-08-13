@@ -284,17 +284,36 @@ export function Hero() {
             background-position: center center;
             inset: 12px;
           }
-          .oaks-masthead-wrap { display: none; }
-          .oaks-india { display: none; }
+          /* Coded overlays matching the text baked into the mobile image */
+          .oaks-masthead-wrap {
+            display: flex;
+            padding-top: 3.1rem;
+          }
+          .oaks-masthead {
+            font-size: 33vw;
+            letter-spacing: 0.005em;
+            color: rgba(233,224,206,0.97);
+          }
+          .oaks-india {
+            display: block;
+            top: 2.05rem;
+            font-size: 10px;
+            letter-spacing: 0.42em;
+            color: rgba(240,232,214,0.92);
+          }
           .oaks-top { display: flex; justify-content: space-between; }
           .oaks-menu { display: none; }
-          .oaks-title-block { display: none; }
+          .oaks-title-block { display: flex; margin-bottom: 0.35rem; }
+          .oaks-tender { font-size: 18.8vw; letter-spacing: 0.005em; }
+          .oaks-with { font-size: 11vw; }
+          .oaks-vows { font-size: 20.6vw; letter-spacing: 0.005em; }
           .meta-left, .meta-right { top: 37% !important; }
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
           .label-archive, .label-collector { bottom: 43%; }
           .label-curated, .label-oaks-studio { bottom: 5.9rem; }
           .oaks-footer-mobile .oaks-cities { margin-top: 2rem; }
+
         }
 
 
