@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { OAKS_GALLERY } from "@/lib/labelknot-images";
 
 type Cell =
@@ -16,6 +17,19 @@ const TEXT_CELLS: Record<number, string> = {
   42: "Quiet Grace",
   44: "Forever Yours",
 };
+
+const TAGLINES = [
+  "The moment before everything changed.",
+  "Two families becoming one.",
+  "Light that only exists at golden hour.",
+  "The laugh nobody planned.",
+  "Quiet joy between the rituals.",
+  "A glance that said everything.",
+  "The dress, the light, the stillness.",
+  "Sacred. Unhurried. Real.",
+  "Every detail was worth it.",
+  "The ones who flew across the world.",
+];
 
 function buildCells(): Cell[] {
   const cells: Cell[] = [];
@@ -52,8 +66,172 @@ function getPosition(i: number): string {
   return "center center";
 }
 
+function cellImages(idx: number, primary: string): string[] {
+  const n = OAKS_GALLERY.length;
+  const a = OAKS_GALLERY[(idx * 3 + 1) % n];
+  const b = OAKS_GALLERY[(idx * 3 + 2) % n];
+  const out = [primary];
+  for (const s of [a, b]) out.push(out.includes(s) ? OAKS_GALLERY[(OAKS_GALLERY.indexOf(s) + 5) % n] : s);
+  return out.slice(0, 3);
+}
+
+const MultiIcon = () => (
+  <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 10, pointerEvents: "none" }}>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="1" width="13" height="13" rx="2" stroke="white" strokeWidth="1.8" fill="none" />
+      <rect x="1" y="5" width="13" height="13" rx="2" stroke="white" strokeWidth="1.8" fill="white" fillOpacity="0.15" />
+      <rect x="1" y="5" width="13" height="13" rx="2" stroke="white" strokeWidth="1.8" fill="none" />
+    </svg>
+  </div>
+);
+
+function ImageCell({
+  images,
+  position,
+  tagline,
+  eager,
+  onExpand,
+}: {
+  images: string[];
+  position: string;
+  tagline: string;
+  eager: boolean;
+  onExpand: (images: string[], start: number) => void;
+}) {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  return (
+    <figure
+      className="relative overflow-hidden bg-[var(--milk)] aspect-[4/5] cursor-pointer"
+      style={{ transition: "filter 0.3s ease" }}
+      onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.04)")}
+      onMouseLeave={(e) => (e.currentTarget.style.filter = "none")}
+    >
+      <div
+        className="absolute inset-0"
+        onClick={() => setActiveSlide((prev) => (prev + 1) % images.length)}
+      >
+        {images.map((src, i) => (
+          <img
+            key={src + i}
+            src={src}
+            alt={tagline}
+            loading={eager && i === 0 ? "eager" : "lazy"}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: position,
+              opacity: i === activeSlide ? 1 : 0,
+              transition: "opacity 0.5s ease",
+            }}
+          />
+        ))}
+      </div>
+
+      <MultiIcon />
+
+      <figcaption
+        style={{
+          position: "absolute",
+          bottom: "32px",
+          left: 0,
+          right: 0,
+          textAlign: "center",
+          fontSize: "13px",
+          fontStyle: "italic",
+          color: "white",
+          opacity: 0.85,
+          letterSpacing: "1px",
+          textShadow: "0 1px 4px rgba(0,0,0,0.4)",
+          pointerEvents: "none",
+          padding: "0 10px",
+        }}
+        className="font-display"
+      >
+        {tagline}
+      </figcaption>
+
+      {/* Dot indicators */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "8px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          gap: "4px",
+          zIndex: 5,
+          pointerEvents: "none",
+        }}
+      >
+        {images.map((_, i) => (
+          <div
+            key={i}
+            style={{
+              width: i === activeSlide ? "16px" : "5px",
+              height: "5px",
+              borderRadius: "3px",
+              background: "white",
+              opacity: i === activeSlide ? 0.95 : 0.45,
+              transition: "all 0.3s ease",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Expand trigger */}
+      <button
+        type="button"
+        aria-label="Open full screen"
+        onClick={(e) => {
+          e.stopPropagation();
+          onExpand(images, activeSlide);
+        }}
+        style={{
+          position: "absolute",
+          bottom: "8px",
+          right: "8px",
+          zIndex: 10,
+          width: "28px",
+          height: "28px",
+          borderRadius: "50%",
+          background: "rgba(255,255,255,0.12)",
+          border: "1px solid rgba(255,255,255,0.35)",
+          backdropFilter: "blur(8px)",
+          color: "white",
+          fontSize: "13px",
+          lineHeight: 1,
+          cursor: "pointer",
+        }}
+      >
+        ⤢
+      </button>
+    </figure>
+  );
+}
+
+const arrowStyle: React.CSSProperties = {
+  top: "50%",
+  transform: "translateY(-50%)",
+  background: "rgba(255,255,255,0.1)",
+  border: "1px solid rgba(255,255,255,0.3)",
+  borderRadius: "50%",
+  width: "40px",
+  height: "40px",
+  color: "white",
+  fontSize: "22px",
+  lineHeight: 1,
+  cursor: "pointer",
+  backdropFilter: "blur(8px)",
+};
+
 export function Gallery() {
   const cells = buildCells();
+  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+
   return (
     <section
       id="gallery"
@@ -75,20 +253,18 @@ export function Gallery() {
         </p>
       </div>
 
-
       {/* Full bleed 3 col grid */}
       <div className="grid grid-cols-3 gap-[2px]">
         {cells.map((c, i) =>
           c.kind === "img" ? (
-            <figure key={i} className="relative overflow-hidden group bg-[var(--milk)] aspect-[4/5]">
-              <img
-                src={c.src}
-                alt={`Label Knot frame ${i + 1}`}
-                loading={i < 6 ? "eager" : "lazy"}
-                style={{ objectPosition: getPosition(i) }}
-                className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-              />
-            </figure>
+            <ImageCell
+              key={i}
+              images={cellImages(c.idx, c.src)}
+              position={getPosition(i)}
+              tagline={TAGLINES[c.idx % TAGLINES.length]}
+              eager={i < 6}
+              onExpand={(images, start) => setLightbox({ images, index: start })}
+            />
           ) : (
             <div
               key={i}
@@ -112,6 +288,73 @@ export function Gallery() {
           ),
         )}
       </div>
+
+      {lightbox && (
+        <div
+          onClick={() => setLightbox(null)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.92)",
+            zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <img
+            src={lightbox.images[lightbox.index]}
+            alt=""
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: "94vw", maxHeight: "90vh", objectFit: "contain", borderRadius: "2px" }}
+          />
+          <button
+            aria-label="Close"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox(null);
+            }}
+            style={{
+              position: "absolute",
+              top: "20px",
+              right: "20px",
+              background: "rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.3)",
+              borderRadius: "50%",
+              width: "40px",
+              height: "40px",
+              color: "white",
+              fontSize: "18px",
+              cursor: "pointer",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            ×
+          </button>
+          <button
+            aria-label="Previous"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((l) =>
+                l ? { ...l, index: (l.index - 1 + l.images.length) % l.images.length } : l,
+              );
+            }}
+            style={{ position: "absolute", left: "20px", ...arrowStyle }}
+          >
+            ‹
+          </button>
+          <button
+            aria-label="Next"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((l) => (l ? { ...l, index: (l.index + 1) % l.images.length } : l));
+            }}
+            style={{ position: "absolute", right: "20px", ...arrowStyle }}
+          >
+            ›
+          </button>
+        </div>
+      )}
     </section>
   );
 }
