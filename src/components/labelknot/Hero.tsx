@@ -296,8 +296,19 @@ export function Hero() {
           .oaks-meta-left span:nth-child(1),
           .oaks-meta-left span:nth-child(2) { display: none; }
           .label-archive, .label-collector { bottom: 43%; }
-          .label-curated, .label-oaks-studio { bottom: 5.9rem; }
-          .oaks-footer-mobile .oaks-cities { margin-top: 2rem; }
+          .label-oaks-studio {
+            top: 3.3rem;
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          .label-curated {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 6.4rem;
+          }
+          .oaks-footer-mobile .oaks-cities { margin-top: 1.3rem; }
         }
 
 
