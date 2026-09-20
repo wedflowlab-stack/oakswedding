@@ -278,6 +278,9 @@ export function Hero() {
 
         /* MOBILE ONLY OVERRIDES */
         @media (max-width: 639px) {
+          .oaks-hero {
+            background: #120001;
+          }
           .oaks-bg {
             background-image: url('${MOBILE_IMAGE}');
             background-size: cover;
