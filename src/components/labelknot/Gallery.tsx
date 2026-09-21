@@ -109,7 +109,7 @@ function ImageCell({
     >
       <div
         className="absolute inset-0"
-        onClick={() => setActiveSlide((prev) => (prev + 1) % images.length)}
+        onClick={() => onExpand(images, activeSlide)}
       >
         {images.map((src, i) => (
           <img
@@ -133,28 +133,7 @@ function ImageCell({
 
       <MultiIcon />
 
-      <figcaption
-        style={{
-          position: "absolute",
-          bottom: "32px",
-          left: 0,
-          right: 0,
-          textAlign: "center",
-          fontSize: "13px",
-          fontStyle: "italic",
-          color: "white",
-          opacity: 0.85,
-          letterSpacing: "1px",
-          textShadow: "0 1px 4px rgba(0,0,0,0.4)",
-          pointerEvents: "none",
-          padding: "0 10px",
-        }}
-        className="font-display"
-      >
-        {tagline}
-      </figcaption>
-
-      {/* Dot indicators */}
+      {/* Dot indicators (visual multi-image cue only) */}
       <div
         style={{
           position: "absolute",
@@ -181,34 +160,6 @@ function ImageCell({
           />
         ))}
       </div>
-
-      {/* Expand trigger */}
-      <button
-        type="button"
-        aria-label="Open full screen"
-        onClick={(e) => {
-          e.stopPropagation();
-          onExpand(images, activeSlide);
-        }}
-        style={{
-          position: "absolute",
-          bottom: "8px",
-          right: "8px",
-          zIndex: 10,
-          width: "28px",
-          height: "28px",
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.12)",
-          border: "1px solid rgba(255,255,255,0.35)",
-          backdropFilter: "blur(8px)",
-          color: "white",
-          fontSize: "13px",
-          lineHeight: 1,
-          cursor: "pointer",
-        }}
-      >
-        ⤢
-      </button>
     </figure>
   );
 }
