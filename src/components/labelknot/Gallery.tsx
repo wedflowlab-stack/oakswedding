@@ -66,40 +66,19 @@ function getPosition(i: number): string {
   return "center center";
 }
 
-function cellImages(idx: number, primary: string): string[] {
-  const n = OAKS_GALLERY.length;
-  const a = OAKS_GALLERY[(idx * 3 + 1) % n];
-  const b = OAKS_GALLERY[(idx * 3 + 2) % n];
-  const out = [primary];
-  for (const s of [a, b]) out.push(out.includes(s) ? OAKS_GALLERY[(OAKS_GALLERY.indexOf(s) + 5) % n] : s);
-  return out.slice(0, 3);
-}
-
-const MultiIcon = () => (
-  <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 10, pointerEvents: "none" }}>
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="5" y="1" width="13" height="13" rx="2" stroke="white" strokeWidth="1.8" fill="none" />
-      <rect x="1" y="5" width="13" height="13" rx="2" stroke="white" strokeWidth="1.8" fill="white" fillOpacity="0.15" />
-      <rect x="1" y="5" width="13" height="13" rx="2" stroke="white" strokeWidth="1.8" fill="none" />
-    </svg>
-  </div>
-);
-
 function ImageCell({
-  images,
+  src,
   position,
   tagline,
   eager,
-  onExpand,
+  onOpen,
 }: {
-  images: string[];
+  src: string;
   position: string;
   tagline: string;
   eager: boolean;
-  onExpand: (images: string[], start: number) => void;
+  onOpen: () => void;
 }) {
-  const [activeSlide, setActiveSlide] = useState(0);
-
   return (
     <figure
       className="relative overflow-hidden bg-[var(--milk)] aspect-[4/5] cursor-pointer"
@@ -109,56 +88,21 @@ function ImageCell({
     >
       <div
         className="absolute inset-0"
-        onClick={() => onExpand(images, activeSlide)}
+        onClick={onOpen}
       >
-        {images.map((src, i) => (
-          <img
-            key={src + i}
-            src={src}
-            alt={tagline}
-            loading={eager && i === 0 ? "eager" : "lazy"}
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: position,
-              opacity: i === activeSlide ? 1 : 0,
-              transition: "opacity 0.5s ease",
-            }}
-          />
-        ))}
-      </div>
-
-      <MultiIcon />
-
-      {/* Dot indicators (visual multi-image cue only) */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "8px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          gap: "4px",
-          zIndex: 5,
-          pointerEvents: "none",
-        }}
-      >
-        {images.map((_, i) => (
-          <div
-            key={i}
-            style={{
-              width: i === activeSlide ? "16px" : "5px",
-              height: "5px",
-              borderRadius: "3px",
-              background: "white",
-              opacity: i === activeSlide ? 0.95 : 0.45,
-              transition: "all 0.3s ease",
-            }}
-          />
-        ))}
+        <img
+          src={src}
+          alt={tagline}
+          loading={eager ? "eager" : "lazy"}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: position,
+          }}
+        />
       </div>
     </figure>
   );
@@ -181,7 +125,8 @@ const arrowStyle: React.CSSProperties = {
 
 export function Gallery() {
   const cells = buildCells();
-  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+  const imageCells = cells.filter((cell): cell is Extract<Cell, { kind: "img" }> => cell.kind === "img");
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
     <section
@@ -210,11 +155,11 @@ export function Gallery() {
           c.kind === "img" ? (
             <ImageCell
               key={i}
-              images={cellImages(c.idx, c.src)}
+              src={c.src}
               position={getPosition(i)}
               tagline={TAGLINES[c.idx % TAGLINES.length]}
               eager={i < 6}
-              onExpand={(images, start) => setLightbox({ images, index: start })}
+              onOpen={() => setLightbox(imageCells.findIndex((image) => image.idx === c.idx))}
             />
           ) : (
             <div
@@ -240,7 +185,7 @@ export function Gallery() {
         )}
       </div>
 
-      {lightbox && (
+      {lightbox !== null && (
         <div
           onClick={() => setLightbox(null)}
           style={{
@@ -254,7 +199,7 @@ export function Gallery() {
           }}
         >
           <img
-            src={lightbox.images[lightbox.index]}
+            src={imageCells[lightbox]?.src ?? ""}
             alt=""
             onClick={(e) => e.stopPropagation()}
             style={{ maxWidth: "94vw", maxHeight: "90vh", objectFit: "contain", borderRadius: "2px" }}
@@ -286,8 +231,8 @@ export function Gallery() {
             aria-label="Previous"
             onClick={(e) => {
               e.stopPropagation();
-              setLightbox((l) =>
-                l ? { ...l, index: (l.index - 1 + l.images.length) % l.images.length } : l,
+              setLightbox((index) =>
+                index === null ? null : (index - 1 + imageCells.length) % imageCells.length,
               );
             }}
             style={{ position: "absolute", left: "20px", ...arrowStyle }}
@@ -298,7 +243,9 @@ export function Gallery() {
             aria-label="Next"
             onClick={(e) => {
               e.stopPropagation();
-              setLightbox((l) => (l ? { ...l, index: (l.index + 1) % l.images.length } : l));
+              setLightbox((index) =>
+                index === null ? null : (index + 1) % imageCells.length,
+              );
             }}
             style={{ position: "absolute", right: "20px", ...arrowStyle }}
           >
