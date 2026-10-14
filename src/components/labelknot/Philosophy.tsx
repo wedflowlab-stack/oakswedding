@@ -1,6 +1,29 @@
 import { useRef, useState, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
+type StoryParagraph = { text: string; lead?: boolean };
+
+function StoryCopy({ paragraphs }: { paragraphs: StoryParagraph[] }) {
+  return (
+    <div className="mx-auto mt-14 max-w-[680px] space-y-6 text-center md:mt-20">
+      {paragraphs.map(({ text, lead }, index) => (
+        <p
+          key={`${index}-${text.slice(0, 16)}`}
+          className={lead ? "font-display italic" : "font-display"}
+          style={{
+            fontSize: lead ? "clamp(23px, 2.4vw, 31px)" : "20px",
+            color: "var(--everest)",
+            lineHeight: lead ? 1.35 : 1.7,
+            fontWeight: lead ? 500 : 400,
+          }}
+        >
+          {text}
+        </p>
+      ))}
+    </div>
+  );
+}
+
 export function Philosophy() {
   return (
     <section
