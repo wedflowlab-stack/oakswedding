@@ -53,97 +53,23 @@ export function Philosophy() {
             <VideoPlayer />
           </figure>
 
-          {/* Heading + copy — stacked below video */}
+          {/* New editorial copy */}
           <div className="w-full text-center" style={{ marginTop: "48px" }}>
             <h2
-              className="editorial-headline text-4xl md:text-6xl lg:text-7xl tracking-widest uppercase"
+              className="editorial-headline text-4xl md:text-6xl lg:text-7xl uppercase"
               style={{ color: "var(--everest)", lineHeight: 1.06, textAlign: "center" }}
             >
-              Everyone was there.
-              <br />
-              <em
-                className="font-display italic normal-case tracking-normal"
-                style={{ fontSize: "0.85em" }}
-              >
-                You will remember almost none of it.
-              </em>
+              You have spent months on this wedding.
             </h2>
-
-            <div className="mt-10 max-w-[680px] mx-auto">
-              {/* Opening — large italic */}
-              <p
-                className="font-display italic"
-                style={{
-                  fontSize: "clamp(23px, 2.4vw, 31px)",
-                  color: "var(--everest)",
-                  lineHeight: 1.35,
-                  textAlign: "center",
-                }}
-              >
-                You will spend months on this wedding. The venue. The flowers. The food. The
-                outfits. Every detail will feel important — because it is. This is not the time for
-                shortcuts.
-              </p>
-
-              {/* Emphasis line — stands alone */}
-              <p
-                className="font-display italic"
-                style={{
-                  fontSize: "clamp(25px, 2.6vw, 33px)",
-                  color: "var(--everest)",
-                  lineHeight: 1.15,
-                  margin: "28px 0",
-                  textAlign: "center",
-                  fontWeight: 600,
-                }}
-              >
-                But here is the thing nobody tells you:
-              </p>
-
-              {/* Body 1 */}
-              <p
-                className="font-display mt-8"
-                style={{
-                  fontSize: "20px",
-                  color: "var(--everest)",
-                  lineHeight: 1.7,
-                  textAlign: "center",
-                }}
-              >
-                Every single thing you are micromanaging right now will fade. The flowers will be
-                forgotten. The venue becomes someone else's event. The food — already gone. The
-                music — a feeling with no name attached to it.
-              </p>
-
-              {/* Emphasis line — stands alone */}
-              <p
-                className="font-display italic"
-                style={{
-                  fontSize: "clamp(25px, 2.6vw, 33px)",
-                  color: "var(--everest)",
-                  lineHeight: 1.15,
-                  margin: "28px 0",
-                  textAlign: "center",
-                  fontWeight: 600,
-                }}
-              >
-                The only thing that can physically return you to that day — twenty years from now —
-                are the photographs.
-              </p>
-
-              {/* Body 2 */}
-              <p
-                className="font-display"
-                style={{
-                  fontSize: "20px",
-                  color: "var(--everest)",
-                  lineHeight: 1.7,
-                  textAlign: "center",
-                }}
-              >
-                Not just the photographs. The moments inside them.
-              </p>
-            </div>
+            <StoryCopy
+              paragraphs={[
+                { text: "Every detail, every arrangement, every decision — held in your hands. And it matters. Every single part of it.", lead: true },
+                { text: "But here is what no one has told you yet." },
+                { text: "On that day — you will not be able to see your own wedding.", lead: true },
+                { text: "You will be inside it. Carried by it. Moving through it faster than you ever imagined a day could move. And while you are living it, the real moments will be happening around you. The ones nobody planned. The ones that don’t announce themselves." },
+                { text: "The ones that vanish the second they happen — unless someone is already there, already watching, already ready." },
+              ]}
+            />
           </div>
 
           {/* Hero plate — Pl. 01, large, left-aligned */}
@@ -165,6 +91,15 @@ export function Philosophy() {
               </figure>
             </div>
           </div>
+
+          <StoryCopy
+            paragraphs={[
+              { text: "Think about the night of your Sangeet.", lead: true },
+              { text: "Your college friends. Your cousins. The people who flew in from three cities — some from abroad — who changed their plans just to be in that room with you. The ones who knew you before any of this." },
+              { text: "One of them will watch you from across the room. And in their face will be years of friendship, connection, and love." },
+              { text: "That face lasts three seconds. If no one is looking for it, it is gone.", lead: true },
+            ]}
+          />
 
           {/* Secondary images — Pl. 02 */}
           <div className="grid grid-cols-12 gap-6 md:gap-10 items-start w-full mt-10 md:mt-16">
@@ -188,47 +123,15 @@ export function Philosophy() {
           </div>
 
 
-          {/* Body paragraph after Pl. 02 */}
-          <div className="mt-14 md:mt-20 max-w-xl mx-auto text-center">
-            <p
-              className="font-display"
-              style={{
-                fontSize: "clamp(25px, 2.6vw, 35px)",
-                color: "var(--everest)",
-                lineHeight: 1.15,
-                textAlign: "center",
-                fontWeight: 500,
-              }}
-            >
-              Your mother, watching you from across the room, understanding something you will only
-              understand yourself when your own child stands where you are standing.
-            </p>
-            <p
-              className="font-display"
-              style={{
-                fontSize: "clamp(25px, 2.6vw, 35px)",
-                color: "var(--everest)",
-                lineHeight: 1.15,
-                margin: "8px 0",
-                textAlign: "center",
-                fontWeight: 500,
-              }}
-            >
-              The cousin who flew across the world to be in that room.
-            </p>
-            <p
-              className="font-display"
-              style={{
-                fontSize: "clamp(25px, 2.6vw, 35px)",
-                color: "var(--everest)",
-                lineHeight: 1.15,
-                textAlign: "center",
-                fontWeight: 500,
-              }}
-            >
-              Your father's face — the one he made when he thought no one was looking.
-            </p>
-          </div>
+          <StoryCopy
+            paragraphs={[
+              { text: "Think about your mother.", lead: true },
+              { text: "There is a version of her you have not seen yet. She has been carrying this day — quietly, privately, in the space between prayers — for years. And now it is here. Her face will do something entirely different today. She knows you are leaving. That breaks her. And at the same time, she is the proudest she has ever been." },
+              { text: "Both things. In the same face. At the same moment. We know exactly how to look for that.", lead: true },
+              { text: "And your father. But he might not share his feelings as you hoped. Watch what his hands do when they have nothing to hold. Watch him adjust his sherwani or blazer one more time even though it looks fine. but .." },
+              { text: "He is holding something enormous — the weight of giving you away, the joy of knowing you have chosen well — without a single word. We have seen this man at a hundred weddings. We know exactly which moment it happens in and where to be when it does." },
+            ]}
+          />
 
 
           {/* Secondary images — Pl. 03 (offset portrait) */}
@@ -252,6 +155,16 @@ export function Philosophy() {
             </div>
           </div>
 
+          <StoryCopy
+            paragraphs={[
+              { text: "Now it's time for your wedding. Maybe for you, it's the pheras, or it could be the vows in a church.", lead: true },
+              { text: "Seven circles. Seven promises. A fire between you. Or you’re at the altar. The pandit or the priest is speaking words that are centuries old. The family has gathered like never before. Everyone you love and every branch of both families are here, all in one place at the same time." },
+              { text: "This will not happen again. Not like this. Not with this exact collection of people, at this exact point in all their lives.", lead: true },
+              { text: "We have stood in that doorway with a hundred families. Fathers who held themselves together through everything — and finally didn’t. Brothers who were certain they were fine, discovering they were not. Grandmothers and grandfathers with tears in their eyes and smiles on their lips — holding a lifetime of you in a single moment." },
+              { text: "The moment does not wait for anyone to be ready. It just happens. And the photographs from that moment — the real ones, the unguarded ones — are the ones a family cannot look at without feeling the full weight of that day return to them completely. We know what is coming. We are already where we need to be." },
+            ]}
+          />
+
           {/* Cinematic wide — Pl. 04, centered */}
           <div className="w-full mt-10 md:mt-16">
             <figure className="mx-auto w-full px-3 md:px-0 md:w-[66%] lg:w-[58%]">
@@ -272,76 +185,20 @@ export function Philosophy() {
 
 
 
-          {/* Urgency seed block */}
-          <div className="mt-20 md:mt-28 mx-auto max-w-xl">
-            {/* Top rule — sand */}
-            <div
-              className="rule-thin mb-10 mx-auto"
-              style={{ borderColor: "var(--sand)", width: "40px" }}
-            />
-
-            {/* Three-line punch */}
-            <div style={{ margin: "0 0 32px 0" }}>
-              <p
-                className="font-display"
-                style={{
-                  fontSize: "clamp(25px, 2.6vw, 35px)",
-                  color: "var(--everest)",
-                  lineHeight: 1.15,
-                  textAlign: "center",
-                  fontWeight: 500,
-                }}
-              >
-                These moments are happening whether someone is watching for them or not.
-              </p>
-              <p
-                className="font-display"
-                style={{
-                  fontSize: "clamp(25px, 2.6vw, 35px)",
-                  color: "var(--everest)",
-                  lineHeight: 1.15,
-                  margin: "8px 0",
-                  textAlign: "center",
-                  fontWeight: 500,
-                }}
-              >
-                The only question is whether they are captured.
-              </p>
-              <p
-                className="font-display"
-                style={{
-                  fontSize: "clamp(25px, 2.6vw, 35px)",
-                  color: "var(--everest)",
-                  lineHeight: 1.15,
-                  textAlign: "center",
-                  fontWeight: 500,
-                }}
-              >
-                Or whether they are simply gone.
-              </p>
-            </div>
-
-            {/* Bottom rule — sand */}
-            <div
-              className="rule-thin mb-8 mt-12 mx-auto"
-              style={{ borderColor: "var(--sand)", width: "40px" }}
-            />
-
-            {/* Closing italic */}
-            <p
-              className="font-display italic"
-              style={{
-                fontSize: "clamp(20px, 2vw, 27px)",
-                color: "var(--everest)",
-                lineHeight: 1.4,
-                marginBottom: "40px",
-                textAlign: "center",
-                fontWeight: 400,
-              }}
-            >
-              What remains after everything else fades — is what we create.
-            </p>
-          </div>
+          <StoryCopy
+            paragraphs={[
+              { text: "Now — a question.", lead: true },
+              { text: "Twenty years from now, you and your partner are at home. The children are asleep. It is an ordinary evening — maybe after an argument, maybe just a quiet night — and one of you suggests watching the wedding film. You sit down together. And it begins." },
+              { text: "The Sangeet. Your cousins. Your friends’ faces. Your mother. Your father. The Pheras. The Vidaai." },
+              { text: "What do you want to feel when you watch that? What do you want to tell your partner in that moment? What do you want your children to understand about who you were on that day — the people you came from, the love that filled that room?", lead: true },
+              { text: "Because that film — that album — is not for next week. It is not for Instagram. It is for that evening. Twenty years from now. And the only question that matters right now is whether the people you choose will be able to give you that." },
+              { text: "The venue will host another wedding next weekend. The flowers will be gone by morning. The dress, folded away.. Every arrangement you spent months creating will fade — not because it wasn’t beautiful, but because that is what arrangements do. They serve the day. And then the day is over." },
+              { text: "What does not fade is what was truly seen. By people who were there not as observers — but as witnesses. Who knew which corridor to stand in, which face to watch, which moment was arriving before it arrived." },
+              { text: "That is what we do. Not because we were told to. Because we have done this long enough to know that a wedding is not one event. It is a hundred unrepeatable moments happening simultaneously — in every corner, all day, all night. The only way to catch them is a team that knows exactly where to be, without being asked." },
+              { text: "One person cannot see a wedding. A team that has worked together long enough to move like a single instinct — can. That is Oaks.", lead: true },
+              { text: "We are not here to document your wedding. We are here so that twenty years from now — when that evening comes — you have everything you need to return to this day completely.", lead: true },
+            ]}
+          />
         </div>
       </div>
     </section>
