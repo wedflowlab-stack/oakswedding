@@ -43,7 +43,7 @@ export function Philosophy() {
             className="font-display italic mt-3"
             style={{ color: "var(--everest)", fontSize: "clamp(16px, 1.8vw, 22px)" }}
           >
-            don't skip what's coming if you want the best from Four Fold
+            A hundred unrepeatable moments happening simultaneously.
           </p>
         </div>
 
